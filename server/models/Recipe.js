@@ -35,21 +35,23 @@ const RecipeSchema = new Schema(
 			required: true,
 			unique: true,
 			trim: true,
-			match: /.+\@.+\..+/,
 		},
-		prepTime: {},
+		prepTime: {
+      type: Number,
+      required: true,
+    },
     cookTime: {
-
+      type: Number,
+      required: true,
     },
     difficulty: {type: String,
 			required: true,
-			// enumerable - data set that can be iterated over
-			enum: ["Easy", "Medium", "Difficult"],
+			enum: ["Easy", "Medium", "Hard"],
 			default: "Medium",},
     userLikes: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: "likes",
+				ref: "User",
 			},
 		],
 	},

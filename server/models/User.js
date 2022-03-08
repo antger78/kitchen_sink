@@ -16,7 +16,6 @@ const UserSchema = new Schema(
 			minlength: 6,
 			maxlength: 30,
 			trim: true,
-			// add encryption
 		},
 		email: {
 			type: String,
