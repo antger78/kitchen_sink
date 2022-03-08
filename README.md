@@ -1,3 +1,5 @@
+As a hungry person with a full fridge and no idea what to eat, I want an app where I can select a recipe based on the ingredients I have and other users' review (Pintrist model shareable post of used recipes with comments and upvote) of those recipes.  
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
