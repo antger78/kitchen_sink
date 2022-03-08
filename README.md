@@ -1,4 +1,10 @@
-As a person with a stocked fridge and no idea what to eat, I want an app where I can select a recipe based on the ingredients I have and other users' review (Pintrist model shareable post of used recipes with comments and upvote) of those recipes so that those with random bits of food and varying cooking capabilities can find new and enticing recipes. 
+As a person with a stocked fridge and no idea what to eat, I want an app where I can select a recipe based on the ingredients I have and other users' review (Pintrist model shareable post of used recipes with comments and upvote) of those recipes so that those with random bits of food and varying cooking capabilities can find new and enticing recipes.
+
+As a person with a semi-stocked fridge and no idea what to eat, I want an app where I can search what ingredients I have, and be returned with what 
+
+AS A person that cooks and eats
+I WANT to share my recipes I am proud of and find new ones to try based on ingredients available in my home
+SO THAT I can connect with fellow cooks and expand my recipe repertoire
 
 # Getting Started with Create React App
 
