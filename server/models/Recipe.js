@@ -10,7 +10,7 @@ const IngredientSchema = new Schema({
 		unique: true,
 	},
 	quantity: {
-		type: Decimal128,
+		type: Schema.Types.Decimal128,
 		required: true,
 	},
 });
