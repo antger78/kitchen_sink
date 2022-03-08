@@ -1,47 +1,70 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
 
-const userSchema = new Schema({
-	username: {
-		type: String,
-		required: "You need to a username!",
-    unique: true,
-		minlength: 5,
-		maxlength: 30,
-		trim: true,
-	},
-	password: {
-		type: String,
-		required: true,
-		minlength: 6,
-		maxlength: 30,
-		trim: true,
-		// add encryption
-	},
-	email: {
-		type: String,
-		required: true,
-    unique: true,
-		trim: true,
-		match: /.+\@.+\..+/,
-	},
-	recipes: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Recipes",
+const IngredientSchema = new Schema(
+  {
+    ingredient: {
+      type: String,
+      required: true,
+      unique: true,
     },
-  ]
-},
-{
-  toJSON: {
-    virtuals: true,
-  },
-  id: false,
+    quantity: {
+      type: Decimal128,
+      required: true,
+    }
+  }
+);
+
+const RecipeSchema = new Schema(
+	{
+		title: {
+			type: String,
+			required: "You need to include a title!",
+			unique: true,
+			minlength: 2,
+			maxlength: 30,
+			trim: true,
+		},
+    author: {
+      type: String,
+      ref: "User"
+    },
+		ingredients: [IngredientSchema],
+		prepInstructions: {
+			type: String,
+			required: true,
+			unique: true,
+			trim: true,
+			match: /.+\@.+\..+/,
+		},
+		prepTime: {},
+    cookTime: {
+
+    },
+    difficulty: {type: String,
+			required: true,
+			// enumerable - data set that can be iterated over
+			enum: ["Easy", "Medium", "Difficult"],
+			default: "Medium",},
+    userLikes: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "likes",
+			},
+		],
+	},
+	{
+		toJSON: {
+			virtuals: true,
+		},
+		id: false,
+	}
+);
+
+RecipeSchema.virtual("likesCount").get(function () {
+	return this.userLikes.length;
 });
 
-UserSchema.virtual("recipesCount").get(function () {
-	return this.recipes.length;
-});
+const Recipe = model("Recipe", RecipeSchema);
 
-const User = model("User", userSchema);
-
-module.exports = User;
+module.exports = Recipe;

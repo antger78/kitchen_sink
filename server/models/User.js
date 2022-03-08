@@ -1,41 +1,64 @@
-const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const { Schema, model } = require("mongoose");
 
-const thoughtSchema = new Schema({
-  thoughtText: {
-    type: String,
-    required: 'You need to leave a thought!',
-    minlength: 1,
-    maxlength: 280,
-    trim: true,
-  },
-  thoughtAuthor: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
-  },
-  comments: [
-    {
-      commentText: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 280,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
-      },
-    },
-  ],
+const UserSchema = new Schema(
+	{
+		username: {
+			type: String,
+			required: "You need a username!",
+			unique: true,
+			minlength: 5,
+			maxlength: 30,
+			trim: true,
+		},
+		password: {
+			type: String,
+			required: true,
+			minlength: 6,
+			maxlength: 30,
+			trim: true,
+			// add encryption
+		},
+		email: {
+			type: String,
+			required: true,
+			unique: true,
+			trim: true,
+			match: /.+\@.+\..+/,
+		},
+		recipes: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Recipes",
+			},
+		],
+	},
+	{
+		toJSON: {
+			virtuals: true,
+		},
+		id: false,
+	}
+);
+
+// hash user password
+UserSchema.pre("save", async function (next) {
+	if (this.isNew || this.isModified("password")) {
+		const saltRounds = 10;
+		this.password = await bcrypt.hash(this.password, saltRounds);
+	}
+	next();
 });
 
-const Thought = model('Thought', thoughtSchema);
+// custom method to compare and validate password for logging in
+UserSchema.methods.isCorrectPassword = async function (password) {
+	return bcrypt.compare(password, this.password);
+};
 
-module.exports = Thought;
+// create virtual for the amount of recipes a user has
+UserSchema.virtual("recipesCount").get(function () {
+	return this.recipes.length;
+});
+
+const User = model("User", UserSchema);
+
+module.exports = User;
