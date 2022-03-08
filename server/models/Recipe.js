@@ -1,19 +1,19 @@
 const { Schema, model, Types } = require("mongoose");
+
+// if we want
 const dateFormat = require("../utils/dateFormat");
 
-const IngredientSchema = new Schema(
-  {
-    ingredient: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    quantity: {
-      type: Decimal128,
-      required: true,
-    }
-  }
-);
+const IngredientSchema = new Schema({
+	ingredient: {
+		type: String,
+		required: true,
+		unique: true,
+	},
+	quantity: {
+		type: Decimal128,
+		required: true,
+	},
+});
 
 const RecipeSchema = new Schema(
 	{
@@ -25,10 +25,15 @@ const RecipeSchema = new Schema(
 			maxlength: 30,
 			trim: true,
 		},
-    author: {
-      type: String,
-      ref: "User"
-    },
+		author: {
+			type: String,
+			ref: "User",
+		},
+		createdAt: {
+			type: Date,
+			default: Date.now,
+			get: (createdAtVal) => dateFormat(createdAtVal),
+		},
 		ingredients: [IngredientSchema],
 		prepInstructions: {
 			type: String,
@@ -37,18 +42,20 @@ const RecipeSchema = new Schema(
 			trim: true,
 		},
 		prepTime: {
-      type: Number,
-      required: true,
-    },
-    cookTime: {
-      type: Number,
-      required: true,
-    },
-    difficulty: {type: String,
+			type: Number,
+			required: true,
+		},
+		cookTime: {
+			type: Number,
+			required: true,
+		},
+		difficulty: {
+			type: String,
 			required: true,
 			enum: ["Easy", "Medium", "Hard"],
-			default: "Medium",},
-    userLikes: [
+			default: "Medium",
+		},
+		userLikes: [
 			{
 				type: Schema.Types.ObjectId,
 				ref: "User",
