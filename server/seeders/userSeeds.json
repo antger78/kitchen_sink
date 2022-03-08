@@ -1,0 +1,32 @@
+[
+  {
+    "username": "AntyMan",
+    "password": "password123",
+    "email": "antman@here.com",
+    "recipes": []
+  },
+  {
+    "username": "MarkieMark",
+    "password": "password456",
+    "email": "markie@here.com",
+    "recipes": []
+  },
+  {
+    "username": "ChildOfLab",
+    "password": "password789",
+    "email": "chillab@here.com",
+    "recipes": []
+  },
+  {
+    "username": "breazicus",
+    "password": "password101",
+    "email": "summerbreeze@here.com",
+    "recipes": []
+  },
+  {
+    "username": "lilJ",
+    "password": "password112",
+    "email": "lilili@here.com",
+    "recipes": []
+  }
+]
