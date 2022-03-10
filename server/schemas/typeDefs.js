@@ -17,10 +17,9 @@ const typeDefs = gql`
 		author: String
 		createdAt: Date
 		ingredients: [Ingredient]
-		# prepInstructions: String
-		# prepTime: Int
-		# difficulty: String
-		# userLikes: Int
+		prepInstructions: String
+		prepTime: Int
+		difficulty: String
 	}
 	type Ingredient {
 		ingredient: String
