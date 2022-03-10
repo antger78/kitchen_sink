@@ -1,6 +1,8 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+	scalar Date
+
 	type User {
 		_id: ID
 		username: String
@@ -13,25 +15,32 @@ const typeDefs = gql`
 		_id: ID
 		title: String
 		author: String
-    createdAt: Date
-    ingredients: [{{ingredients:ingredient}, {ingredients:quantity}}]
-    prepInstructions: String
-    prepTime: Int
-    difficulty: String
-    userLikes: Int
+		createdAt: Date
+		ingredients: [Ingredient]
+		prepInstructions: String
+		prepTime: Int
+		difficulty: String
+		userLikes: Int
+	}
+	type Ingredient {
+		ingredient: String
+		quantity: String
 	}
 
-	// type Query {
-	// 	thoughts: [Thought]!
-	// 	thought(thoughtId: ID!): Thought
-	// }
+	type Query {
+		users: [User]
+		recipes: [Recipe]
+		recipe(recipeId: ID!): Recipe
+	}
 
-	// type Mutation {
-	// 	addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-	// 	addComment(thoughtId: ID!, commentText: String!): Thought
-	// 	removeThought(thoughtId: ID!): Thought
-	// 	removeComment(thoughtId: ID!, commentId: ID!): Thought
-	// }
+	# type Mutation {
+	# 	# addUser(username: String!, email: String!, password: String!): User
+	# 	# addRecipe(
+	# 	# 	title: String!
+	# 	# 	author: String!
+	# 	# 	ingredients: [Ingredient]
+	# 	# ): Recipe
+	# }
 `;
 
 module.exports = typeDefs;
