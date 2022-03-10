@@ -1,57 +1,11 @@
 [
   {
     "title": "Pork Katsu",
-    "author": "MarkieMark",
-    "createdAt": "Feb 7th, 2022 at 15:48 pm",
-    "ingredients": ["pork chop", "egg", "panko breadcrumbs"],
+    "author": "6229557ac4ed5107ba82258f",
+    "ingredients": [{"ingredient":"pork chop", "quantity": "One"}],
     "prepInstructions": "Take pork chop and dip into egg bath, then into panko breadcrumbs. In a cast iron skillet heat oil. Fry pork chops until golden brown and delicious!",
     "prepTime": "30",
     "cookTime": "20",
-    "difficulty": "Medium",
-    "userLikes": "4"
-  },
-  {
-    "title": "Boiled Egg",
-    "author": "breazicus",
-    "createdAt": "Mar 2th, 2022 at 07:48 am",
-    "ingredients": ["egg"],
-    "prepInstructions": "Boil water. Poke a hole in the bottom of the egg. Drop egg into boiling water for 6 minutes and 10 seconds. After time pour out water and allow egg to cool in ice bath for 5 minutes then peel.",
-    "prepTime": "5",
-    "cookTime": "7",
-    "difficulty": "Easy",
-    "userLikes": "1"
-  },
-  {
-    "title": "Quesadilla",
-    "author": "ChildOfLab",
-    "createdAt": "Mar 1th, 2022 at 10:48 am",
-    "ingredients": ["tortillas", "queso", "sour cream"],
-    "prepInstructions": "Heat a cast iron skillet over medium heat. Add tortilla to warm. After sufficiently warmed add cheese. Once melted top with second tortilla and flip. Warm until second side is slightly crisped and serve.",
-    "prepTime": "2",
-    "cookTime": "2",
-    "difficulty": "Easy",
-    "userLikes": "5"
-  },
-  {
-    "title": "Fruit Salad",
-    "author": "lilJ",
-    "createdAt": "Mar 7th, 2022 at 11:30 am",
-    "ingredients": ["apple", "grape", "pinapple", "strawberry"],
-    "prepInstructions": "Cut fruits and add together in a bowl. Serve with a smile 😁",
-    "prepTime": "10",
-    "cookTime": "0",
-    "difficulty": "Easy",
-    "userLikes": "2"
-  },
-  {
-    "title": "17 Layered Chocolate Cake",
-    "author": "AntyMan",
-    "createdAt": "Feb 25th, 2022 at 16:48 pm",
-    "ingredients": ["chocolate", "cake"],
-    "prepInstructions": "Go to Carne Mare on South Street, in the SeaPort of New York City. Sit at a table. Order steak and fries. Perhaps add on a salad if you're so inclined. For dessert ask your server for the 17 Layered Chocolate Cake. Don't forget to ask for it to go. Once you return home, open togo containter and slide a fork through those 17 layers of chocolatey goodness.",
-    "prepTime": "120",
-    "cookTime": "0",
-    "difficulty": "Hard",
-    "userLikes": "5"
+    "difficulty": "Medium"
   }
  ]

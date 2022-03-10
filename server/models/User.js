@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const UserSchema = new Schema(
 	{
@@ -27,7 +28,7 @@ const UserSchema = new Schema(
 		recipes: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: "Recipes",
+				ref: "Recipe",
 			},
 		],
 	},
