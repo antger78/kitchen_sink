@@ -6,8 +6,7 @@ const dateFormat = require("../utils/dateFormat");
 const IngredientSchema = new Schema({
 	ingredient: {
 		type: String,
-		required: true,
-		unique: true,
+		required: true
 	},
 	quantity: {
 		type: String,
@@ -34,7 +33,7 @@ const RecipeSchema = new Schema(
 			default: Date.now,
 			get: (createdAtVal) => dateFormat(createdAtVal),
 		},
-		ingredients: [IngredientSchema],
+		// ingredients: [IngredientSchema],
 		prepInstructions: {
 			type: String,
 			required: true,
