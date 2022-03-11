@@ -47,11 +47,39 @@ mutation (
     }
   }
 `;
-// export const MUTATION_DELETERECIPE = gql`
 
-// `;
-// export const MUTATION_UPDATERECIPE = gql`
+export const MUTATION_DELETERECIPE = gql`
+mutation ($_id:ID!){
+  deleteRecipe(_id:$_id){
+    _id
+    title
+    author
+  }
+}
+`;
 
-// `;export const MUTATION_LIKERECIPE = gql`
+export const MUTATION_UPDATERECIPE = gql`
+mutation ($_id:ID!, $title:String!) {
+  updateRecipe (_id:$_id, title:$title) {
+    title
+    prepTime
+    cookTime
+    prepInstructions
+    difficulty
+    ingredients
+  }
+}
+`;
 
-// `;
+export const MUTATION_LIKERECIPE = gql`
+mutation ($_id: ID!) {
+  likeRecipe (_id: $_id) {
+    title
+    author
+    likesCount
+    userLikes {
+      _id
+    }
+  }
+}
+`;
