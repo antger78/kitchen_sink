@@ -7,5 +7,41 @@
     "prepTime": "30",
     "cookTime": "20",
     "difficulty": "Medium"
-  }
+  },
+  {
+    "title": "Boiled Egg",
+    "author": "622956ca3d9c5408fe8c2308",
+    "ingredients": [{"ingredient":"egg", "quantity": "One"}],
+    "prepInstructions": "Boil water. Poke a hole in the bottom of the egg. Drop egg into boiling water for 6 minutes and 10 seconds. After time pour out water and allow egg to cool in ice bath for 5 minutes then peel.",
+    "prepTime": "5",
+    "cookTime": "7",
+    "difficulty": "Easy"
+  },
+  {
+    "title": "Quesadilla",
+    "author": "622956ca3d9c5408fe8c2307",
+    "ingredients": [{"ingredient":"tortilla", "quantity": "One"}, {"ingredient":"queso", "quantity": "One cupt"}, {"ingredient":"sour cream", "quantity": "One dolop"}],
+    "prepInstructions": "Heat a cast iron skillet over medium heat. Add tortilla to warm. After sufficiently warmed add cheese. Once melted top with second tortilla and flip. Warm until second side is slightly crisped and serve.",
+    "prepTime": "2",
+    "cookTime": "2",
+    "difficulty": "Easy"
+  },
+  {
+    "title": "Fruit Salad",
+    "author": "622956ca3d9c5408fe8c2309",
+    "ingredients": [{"ingredient":"apple", "quantity": "One"}, {"ingredient":"grapes", "quantity": "One bunch"}, {"ingredient":"pineapple", "quantity": "One half"}, {"ingredient":"strawberry", "quantity": "One handful"}],
+    "prepInstructions": "Cut fruits and add together in a bowl. Serve with a smile 😁",
+    "prepTime": "10",
+    "cookTime": "0",
+    "difficulty": "Easy"
+  },
+  {
+    "title": "17 Layered Chocolate Cake",
+    "author": "Anty622956ca3d9c5408fe8c2305Man",
+    "ingredients": [{"ingredient":"Chocolate", "quantity": "One"}, {"ingredient":"Cake", "quantity": "One"}, {"ingredient":"Layers", "quantity": "17"}],
+    "prepInstructions": "Go to Carne Mare on South Street, in the SeaPort of New York City. Sit at a table. Order steak and fries. Perhaps add on a salad if you're so inclined. For dessert ask your server for the 17 Layered Chocolate Cake. Don't forget to ask for it to go. Once you return home, open togo containter and slide a fork through those 17 layers of chocolatey goodness.",
+    "prepTime": "120",
+    "cookTime": "0",
+    "difficulty": "Hard"
+  } 
  ]
