@@ -30,6 +30,11 @@ const typeDefs = gql`
     quantity: String
   }
 
+  input IngredientInput {
+    ingredient: String
+    quantity: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -46,7 +51,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addRecipe(
       title: String!
-      ingredients: [Ingredient]
+      ingredients: [Object]
       prepInstructions: String
 			prepTime: Int
       cookTime:Int
