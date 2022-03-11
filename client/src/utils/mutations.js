@@ -24,13 +24,15 @@ mutation login($email: String!, $password: String!) {
 }
 `;
 export const MUTATION_ADDRECIPE = gql`
-mutation ($title:String!,
+mutation (
+  $title:String!,
 	$prepInstructions:String,
 	$prepTime:Int,
   $cookTime:Int,
 	$difficulty:String,
 	$ingredients:[String]) {
-    addRecipe(title:$title,
+    addRecipe (
+      title:$title,
     	prepInstructions: $prepInstructions,
     	prepTime:$prepTime,
       cookTime:$cookTime,
