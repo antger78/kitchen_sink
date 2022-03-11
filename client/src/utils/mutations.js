@@ -24,13 +24,15 @@ mutation login($email: String!, $password: String!) {
 }
 `;
 export const MUTATION_ADDRECIPE = gql`
-mutation ($title:String!,
+mutation (
+  $title:String!,
 	$prepInstructions:String,
 	$prepTime:Int,
   $cookTime:Int,
 	$difficulty:String,
 	$ingredients:[String]) {
-    addRecipe(title:$title,
+    addRecipe (
+      title:$title,
     	prepInstructions: $prepInstructions,
     	prepTime:$prepTime,
       cookTime:$cookTime,
@@ -45,11 +47,39 @@ mutation ($title:String!,
     }
   }
 `;
-// export const MUTATION_DELETERECIPE = gql`
 
-// `;
-// export const MUTATION_UPDATERECIPE = gql`
+export const MUTATION_DELETERECIPE = gql`
+mutation ($_id:ID!){
+  deleteRecipe(_id:$_id){
+    _id
+    title
+    author
+  }
+}
+`;
 
-// `;export const MUTATION_LIKERECIPE = gql`
+export const MUTATION_UPDATERECIPE = gql`
+mutation ($_id:ID!, $title:String!) {
+  updateRecipe (_id:$_id, title:$title) {
+    title
+    prepTime
+    cookTime
+    prepInstructions
+    difficulty
+    ingredients
+  }
+}
+`;
 
-// `;
+export const MUTATION_LIKERECIPE = gql`
+mutation ($_id: ID!) {
+  likeRecipe (_id: $_id) {
+    title
+    author
+    likesCount
+    userLikes {
+      _id
+    }
+  }
+}
+`;

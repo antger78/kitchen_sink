@@ -58,9 +58,10 @@ const typeDefs = gql`
     updateRecipe(
       _id: ID!
       title: String
-      #ingredients: [Ingredient]
+      ingredients: [String]
       prepInstructions: String
       prepTime: Int
+      cookTime: Int
       difficulty: String
     ): Recipe
     likeRecipe(_id: ID!): Recipe
