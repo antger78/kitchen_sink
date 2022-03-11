@@ -46,9 +46,8 @@ const resolvers = {
 					prepTime: args.prepTime,
 					cookTime: args.cookTime,
 					difficulty: args.difficulty,
-					// ingredients: args.ingredients
+					ingredients: args.ingredients
 				});
-				const ingredients = await Ingredient.create(args.ingredients);
 
 				await User.findOneAndUpdate(
 					{ _id: context.user._id },

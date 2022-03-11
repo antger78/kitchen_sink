@@ -17,7 +17,7 @@ const typeDefs = gql`
     title: String
     author: String
     createdAt: Date
-    ingredients: [Ingredient]
+    ingredients: [String]
     prepInstructions: String
     prepTime: Int
     cookTime: Int
@@ -25,15 +25,11 @@ const typeDefs = gql`
     userLikes: [User]
     likesCount: Int
   }
-  type Ingredient {
-    ingredient: String
-    quantity: String
-  }
+  # type Ingredient {
+  #   ingredient: String
+  #   quantity: String
+  # }
 
-  input IngredientInput {
-    ingredient: String
-    quantity: String
-  }
 
   type Auth {
     token: ID!
@@ -51,7 +47,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addRecipe(
       title: String!
-      ingredients: [Object]
+      ingredients: [String]
       prepInstructions: String
 			prepTime: Int
       cookTime:Int
