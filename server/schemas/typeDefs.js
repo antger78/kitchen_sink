@@ -25,6 +25,7 @@ const typeDefs = gql`
     userLikes: [User]
     likesCount: Int
   }
+
   # type Ingredient {
   #   ingredient: String
   #   quantity: String

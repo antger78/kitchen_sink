@@ -23,28 +23,28 @@ mutation login($email: String!, $password: String!) {
   }
 }
 `;
-// export const MUTATION_ADDRECIPE = gql`
-// mutation ($title:String!,
-// 	$prepInstructions:String,
-// 	$prepTime:Int,
-//   $cookTime:Int,
-// 	$difficulty:String,
-// 	$ingredients:[String]) {
-//     addRecipe(title:$title,
-//     	prepInstructions: $prepInstructions,
-//     	prepTime:$prepTime,
-//       cookTime:$cookTime,
-//     	difficulty:$difficulty,
-//       ingredients:$ingredients
-//     ) {
-//       title
-//       prepInstructions
-//       prepTime
-//       difficulty
-//       ingredients 
-//     }
-//   }
-// `;
+export const MUTATION_ADDRECIPE = gql`
+mutation ($title:String!,
+	$prepInstructions:String,
+	$prepTime:Int,
+  $cookTime:Int,
+	$difficulty:String,
+	$ingredients:[String]) {
+    addRecipe(title:$title,
+    	prepInstructions: $prepInstructions,
+    	prepTime:$prepTime,
+      cookTime:$cookTime,
+    	difficulty:$difficulty,
+      ingredients:$ingredients
+    ) {
+      title
+      prepInstructions
+      prepTime
+      difficulty
+      ingredients 
+    }
+  }
+`;
 // export const MUTATION_DELETERECIPE = gql`
 
 // `;

@@ -19,7 +19,6 @@ const RecipeSchema = new Schema(
 		title: {
 			type: String,
 			required: "You need to include a title!",
-			unique: true,
 			minlength: 2,
 			maxlength: 30,
 			trim: true,
@@ -34,6 +33,7 @@ const RecipeSchema = new Schema(
 			get: (createdAtVal) => dateFormat(createdAtVal),
 		},
 		// ingredients: [IngredientSchema],
+
 		ingredients: [{
 			type: String,
 			trim: true
@@ -41,7 +41,6 @@ const RecipeSchema = new Schema(
 		prepInstructions: {
 			type: String,
 			required: true,
-			unique: true,
 			trim: true,
 		},
 		prepTime: {
