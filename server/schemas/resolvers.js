@@ -20,11 +20,14 @@ const resolvers = {
 		keywordRecipe: async (parent, args) => {
 			console.log(args);
 			
-			const search_term = args.input.filter.title;
+			// const search_term = args.input.filter.title;
+			const search_term = args.input;
 			const regex = new RegExp(search_term, 'i');
-			console.log(regex);
+			console.log("Keyword recipe resolver:", regex);
 			
-			const found = await Recipe.find({ title: { $regex: regex } });
+			// const found = await Recipe.find({ title: { $regex: regex } } || { ingredients: { $regex: regex } });
+			// const found = await Recipe.find({ ingredients: [search_term] });
+			const found = await Recipe.find({ ingredients: {$in: search_term} });
 			console.log(found);
 			
 			return found;
