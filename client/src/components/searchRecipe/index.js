@@ -5,6 +5,7 @@ import RecipeList from "../RecipeList";
 const SearchRecipes = () => {
     return (
         <Container fluid>
+            <h1 category={currentCategory}></h1>
             <Row>
                 <Form>
                     <Form.Group>
