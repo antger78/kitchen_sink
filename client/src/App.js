@@ -9,6 +9,7 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SearchRecipes from "./pages/homepage";
 import Navbar from "./components/NavBar";
+import RecipeCard from "./components/Recipe";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -40,6 +41,10 @@ function App() {
             <Route exact path="/saved" component={} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch> */}
+          {
+            // <SearchRecipe component>
+          }
+          
         </>
       </Router>
     </ApolloProvider>

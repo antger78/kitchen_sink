@@ -1,13 +1,13 @@
 import React from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
 
-import image from '../../../public/logo512.png';
+//import image from '../../../public/logo512.png';
 
-const RecipeCard = () => {
+const RecipeCard = (props) => {
     
     return (
         <Card>
-            <Card.Img variant='top' src={image} />
+            <Card.Img variant='top' alt='recipe card img' />
             <Card.Body>
                 <Card.Title>My Great Recipe</Card.Title>
                 <Card.Subtitle>difficulty | prep time | cook time</Card.Subtitle>
