@@ -7,7 +7,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SearchRecipes from "./pages/homepage";
+// import SearchRecipes from "./pages/homepage";
 import Navbar from "./components/NavBar";
 import RecipeCard from "./components/Recipe";
 
@@ -37,8 +37,14 @@ function App() {
         <>
           <Navbar />
           {/* <Switch>
-            <Route exact path="/" component={SearchRecipes} />
-            <Route exact path="/saved" component={} />
+            <Route exact path="/" component={} />
+
+            <Route exact path="/add-recipe" component={addRecipe} />
+
+            <Route exact path="/your-recipes" component={userRecipes} />
+
+            <Route exact path="/liked-recipes" component={likedRecipes} />
+
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch> */}
           {
