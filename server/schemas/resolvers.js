@@ -20,7 +20,8 @@ const resolvers = {
 		keywordRecipe: async (parent, args) => {
 			console.log(args);
 			
-			const search_term = args.input.filter.title;
+			// const search_term = args.input.filter.title;
+			const search_term = args.input;
 			const regex = new RegExp(search_term, 'i');
 			console.log(regex);
 			

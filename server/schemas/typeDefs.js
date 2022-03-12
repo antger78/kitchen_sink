@@ -25,13 +25,14 @@ const typeDefs = gql`
     likesCount: Int
   }
 
-  input RecipeSearchTerm {
-    title: String
-  }
+  # input RecipeSearchTerm {
+  #   title: String
+  # }
 
-  input RecipeFilter {
-    filter: RecipeSearchTerm
-  }
+  # input RecipeFilter {
+  #   filter: RecipeSearchTerm
+  # }
+
 
   type Auth {
     token: ID!
@@ -42,7 +43,7 @@ const typeDefs = gql`
     users: [User]
     recipes: [Recipe]
     recipe(_id: ID!): Recipe
-    keywordRecipe(input: RecipeFilter): [Recipe]
+    keywordRecipe(input: String): [Recipe]
   }
 
   type Mutation {
