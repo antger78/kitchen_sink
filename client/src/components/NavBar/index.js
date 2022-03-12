@@ -10,6 +10,11 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
+  // changing tab title name (head/title)
+  // useEffect(() => {
+  //   document.title = capitalizeFirstLetter(currentCategory.name);
+  // }, [currentCategory]);
+
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">

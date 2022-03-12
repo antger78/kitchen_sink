@@ -9,7 +9,7 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import SearchRecipes from "./pages/homepage";
 import Navbar from "./components/NavBar";
-import RecipeCard from "./components/Recipe";
+// import RecipeList from "./components/RecipeList";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
