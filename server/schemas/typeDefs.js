@@ -2,7 +2,15 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   scalar Date
-  scalar Object
+
+  input recipeFilter {
+    title: String
+  }
+
+  input recipeInput {
+    filter: recipeFilter
+
+  }
 
   type User {
     _id: ID
@@ -41,6 +49,8 @@ const typeDefs = gql`
     users: [User]
     recipes: [Recipe]
     recipe(_id: ID!): Recipe
+    keywordRecipe(input: recipeInput): [Recipe]!
+    
   }
 
   type Mutation {

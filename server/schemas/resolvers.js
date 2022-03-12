@@ -4,6 +4,9 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
 	Query: {
+		keywordRecipe: async (parent, args) => {
+			return Recipe.find({title:{regex: '^' + args.search_text, $options: 'i'}})
+		},
 		recipes: async () => {
 			return Recipe.find().sort({ createdAt: -1 });
 		},
