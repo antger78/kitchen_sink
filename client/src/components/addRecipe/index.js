@@ -8,45 +8,45 @@ import Auth from "../../utils/auth";
 
 
 const RecipeForm = () => {
-    const [recipeFormData, setRecipeFormData] = useState({ title: "", ingredients: "", prepInstructions: "", prepTime: "", cookTime: "", difficulty: "" });
-    const [validated] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
-    const [recipe] = useMutation(MUTATION_ADDRECIPE);
+  const [recipeFormData, setRecipeFormData] = useState({ title: "", ingredients: "", prepInstructions: "", prepTime: "", cookTime: "", difficulty: "" });
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [recipe] = useMutation(MUTATION_ADDRECIPE);
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setRecipeFormData({ ...recipeFormData, [name]: value });
-      };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setRecipeFormData({ ...recipeFormData, [name]: value });
+  };
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-            // check if form has everything (as per react-bootstrap docs)
-            const form = event.currentTarget;
-            if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-            }
-            try {
-            const { data } = await recipe({ variables: { ...recipeFormData } });
-            }catch(err){
-                console.error(err);
-                setShowAlert(true);
-            }
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    try {
+      const { data } = await recipe({ variables: { ...recipeFormData } });
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
 
-            setRecipeFormData({
-                title: "", 
-                ingredients: "", 
-                prepInstructions: "", 
-                prepTime: "", 
-                cookTime: "", 
-                difficulty: ""
-            });
-        };
+    setRecipeFormData({
+      title: "",
+      ingredients: "",
+      prepInstructions: "",
+      prepTime: "",
+      cookTime: "",
+      difficulty: ""
+    });
+  };
 
-        return(
-            <>
-            <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-            <Alert
+  return (
+    <>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        <Alert
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
@@ -126,13 +126,13 @@ const RecipeForm = () => {
             How tough is your recipe!
           </Form.Control.Feedback>
         </Form.Group>
+        <Button type="submit" onClick={() => handleFormSubmit()}>Add your recipe</Button>
+      </Form>
 
-            </Form>
 
 
-        
-            </>
-        )
+    </>
+  )
 
-             
+
 };
