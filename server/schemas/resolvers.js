@@ -4,9 +4,9 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
 	Query: {
-		keywordRecipe: async (parent, args) => {
+		/*keywordRecipe: async (parent, args) => {
 			return Recipe.find({title:{regex: '^' + args.search_text, $options: 'i'}})
-		},
+		},*/
 		recipes: async () => {
 			return Recipe.find().sort({ createdAt: -1 });
 		},
@@ -17,6 +17,18 @@ const resolvers = {
 		recipe: async (parent, { _id }) => {
 			return Recipe.findOne({ _id });
 		},
+		keywordRecipe: async (parent, args) => {
+			console.log(args);
+			
+			const search_term = args.input.filter.title;
+			const regex = new RegExp(search_term, 'i');
+			console.log(regex);
+			
+			const found = await Recipe.find({ title: { $regex: regex } });
+			console.log(found);
+			
+			return found;
+		}
 	},
 
 	Mutation: {
@@ -40,8 +52,8 @@ const resolvers = {
 		addRecipe: async (parent, args, context) => {
 			if (context.user) {
 				console.log(args);
-				
-				
+
+
 				const recipe = await Recipe.create({
 					author: context.user.username,
 					title: args.title,
@@ -62,7 +74,7 @@ const resolvers = {
 			}
 			throw new AuthenticationError('You must be logged in');
 		},
-		updateRecipe: async (parent, { _id, ...args}, context) => {
+		updateRecipe: async (parent, { _id, ...args }, context) => {
 			if (context.user) {
 				const recipe = await Recipe.findOneAndUpdate(
 					{ _id }, args, { new: true }

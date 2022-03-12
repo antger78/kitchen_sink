@@ -3,15 +3,6 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   scalar Date
 
-  input recipeFilter {
-    title: String
-  }
-
-  input recipeInput {
-    filter: recipeFilter
-
-  }
-
   type User {
     _id: ID
     username: String
@@ -34,11 +25,13 @@ const typeDefs = gql`
     likesCount: Int
   }
 
-  # type Ingredient {
-  #   ingredient: String
-  #   quantity: String
-  # }
+  input RecipeSearchTerm {
+    title: String
+  }
 
+  input RecipeFilter {
+    filter: RecipeSearchTerm
+  }
 
   type Auth {
     token: ID!
@@ -49,8 +42,7 @@ const typeDefs = gql`
     users: [User]
     recipes: [Recipe]
     recipe(_id: ID!): Recipe
-    keywordRecipe(input: recipeInput): [Recipe]!
-    
+    keywordRecipe(input: RecipeFilter): [Recipe]
   }
 
   type Mutation {
