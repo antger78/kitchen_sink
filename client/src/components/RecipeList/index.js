@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, ListGroup, Row } from 'react-bootstrap';
 
 const RecipeList = (props) => {
-
+    // get data from db to populate cards
     return (
         <Row className='flex-row'>
             {// map recipes to return cards, remember to add a key

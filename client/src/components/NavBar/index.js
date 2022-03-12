@@ -30,7 +30,7 @@ const AppNavbar = (props) => {
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/add-recipe' onClick={() => setCurrentCategory(/* add recipe component state */)}>
+                  <Nav.Link as={Link} to='/add-recipe' onClick={() => setCurrentCategory(categories[3])} >
                     Add a Recipe
                   </Nav.Link>
                   <Nav.Link as={Link} to='/your-recipes' onClick={() => setCurrentCategory(categories[1])}>

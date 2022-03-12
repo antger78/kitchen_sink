@@ -9,6 +9,7 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import RecipeContainer from "./components/RecipeContainer";
+import RecipeForm from "./components/addRecipe";
 
 
 const httpLink = createHttpLink({
@@ -32,7 +33,7 @@ const client = new ApolloClient({
 
 function App() {
 
-  const categories = ['/', 'your-recipes','liked-recipes'];
+  const categories = ['kitchen sink', 'your recipes','your favorite recipes', 'add'];
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
   return (
@@ -45,9 +46,13 @@ function App() {
             setCurrentCategory={setCurrentCategory}
           />
           <Switch>
-            <Route exact path="/" component={RecipeContainer} />
+            <Route exact path="/">
+              <RecipeContainer category={categories[0]} />
+            </Route>
             {/* add recipe component/modal shows */}
-            {/* <Route exact path="/add-recipe" component={addRecipe} /> */}
+            <Route exact path="/add-recipe">
+              <RecipeForm category={categories[3]} />
+            </Route>
 
             {/* show recipe container with "Your Recipes" h1 */}
             <Route exact path="/your-recipes">
