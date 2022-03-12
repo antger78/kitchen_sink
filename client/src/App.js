@@ -7,8 +7,8 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SearchRecipes from "./pages/SearchRecipes";
-import Navbar from "./components/Navbar";
+import SearchRecipes from "./pages/homepage";
+import Navbar from "./components/NavBar";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
