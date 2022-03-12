@@ -25,4 +25,4 @@ const RecipeList = (props) => {
     )
 };
 
-export default RecipeCard;
+export default RecipeList;

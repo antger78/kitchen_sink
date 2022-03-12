@@ -6,9 +6,11 @@ import LoginForm from "../Login";
 
 import Auth from "../../utils/auth";
 
-const AppNavbar = () => {
+const AppNavbar = (props) => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
+
+  const { categories, currentCategory, setCurrentCategory } = props;
 
   // changing tab title name (head/title)
   // useEffect(() => {
@@ -28,13 +30,13 @@ const AppNavbar = () => {
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/add-recipe'>
+                  <Nav.Link as={Link} to='/add-recipe' onClick={() => setCurrentCategory(/* add recipe component state */)}>
                     Add a Recipe
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/your-recipes'>
+                  <Nav.Link as={Link} to='/your-recipes' onClick={() => setCurrentCategory(categories[1])}>
                     Your Recipes
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/liked-recipes'>
+                  <Nav.Link as={Link} to='/liked-recipes' onClick={() => setCurrentCategory(categories[2])}>
                     Liked Recipes
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>

@@ -1,11 +1,15 @@
+// recipe containder index
 import React from "react";
 import { Button, Container, Form, Row } from "react-bootstrap";
 import RecipeList from "../RecipeList";
 
-const SearchRecipes = () => {
+const RecipeContainer = (props) => {
+    // const heading = props.currentCategory;
+    const {category} = props
+
     return (
         <Container fluid>
-            <h1 category={currentCategory}></h1>
+            <h1>{category}</h1>
             <Row>
                 <Form>
                     <Form.Group>
@@ -19,3 +23,5 @@ const SearchRecipes = () => {
         </Container>
     )
 }
+
+export default RecipeContainer;
