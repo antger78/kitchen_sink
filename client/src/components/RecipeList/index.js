@@ -5,12 +5,10 @@ import { QUERY_RECIPES } from "../../utils/queries";
 
 const RecipeList = (props) => {
   // get data from db to populate cards
-  const { loading, data } = useQuery(QUERY_RECIPES, {
-    variables: { first: 10 },
-  });
+  const { loading, data } = useQuery(QUERY_RECIPES);
   // if data exists, store in queriedRecipes const
   const queriedRecipes = data?.recipes || [];
-  console.log(data, queriedRecipes);
+  console.log(queriedRecipes);
   return (
     <Row className="flex-row">
       {
@@ -21,7 +19,7 @@ const RecipeList = (props) => {
             {loading ? (
               <div>Loading...</div>
             ) : (
-              <Card.Title title={data.queriedRecipes.title} />
+              <Card.Title title={data} />
             )}
             <Card.Subtitle>difficulty | prep time | cook time</Card.Subtitle>
             <ListGroup variant="flush">
