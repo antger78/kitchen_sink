@@ -1,8 +1,9 @@
 import React from "react";
-import { Card, ListGroup, Row } from "react-bootstrap";
+import { Card, ListGroup, Row, Spinner } from "react-bootstrap";
 import { useQuery } from "@apollo/client";
 import { QUERY_RECIPES } from "../../utils/queries";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./recipeList.css";
 
 const RecipeList = (props) => {
   // get data from db to populate cards
@@ -16,25 +17,27 @@ const RecipeList = (props) => {
         // map recipes to return cards, remember to add a key
         <>
           {loading ? (
-            <div>Loading...</div>
+            <Spinner animation="border" />
           ) : (
             queriedRecipes.map((recipe) =>{
               return (
                 <Card>
-              <Card.Img variant="top" alt="recipe card img" />
+              {/* <Card.Img variant="top" alt="recipe card img" /> */}
               <Card.Body>
                 <Card.Title>{recipe.title}</Card.Title>
-                <Card.Subtitle>
-                  difficulty | prep time | cook time
-                </Card.Subtitle>
+                <Card.Text>Difficulty: {recipe.difficulty}</Card.Text>
+                <Card.Subtitle>Prep Time: {recipe.prepTime}</Card.Subtitle>
+                <Card.Subtitle>Cook Time: {recipe.cookTime}</Card.Subtitle>
+
                 <ListGroup variant="flush">
-                  {recipe.ingredients.map((ingredient) => {
+                  {recipe.ingredients.map((ingredients) => {
                     return (
-                      <ListGroup.Item>{ingredient}</ListGroup.Item>
+                      <ListGroup.Item>{ingredients}</ListGroup.Item>
                     )
                   })}
                 </ListGroup>
-                <Card.Text>These are the prep instructions</Card.Text>
+                
+                <Card.Text>Prep Instructions: {recipe.prepInstructions}</Card.Text>
               </Card.Body>
             </Card>
               )
@@ -45,5 +48,6 @@ const RecipeList = (props) => {
     </Row>
   );
 };
+
 
 export default RecipeList;
