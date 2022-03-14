@@ -6,9 +6,15 @@ import { MUTATION_ADDRECIPE } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 
-
 const RecipeForm = () => {
-  const [recipeFormData, setRecipeFormData] = useState({ title: "", ingredients: "", prepInstructions: "", prepTime: "", cookTime: "", difficulty: "" });
+  const [recipeFormData, setRecipeFormData] = useState({
+    title: "",
+    ingredients: "",
+    prepInstructions: "",
+    prepTime: "",
+    cookTime: "",
+    difficulty: "",
+  });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [recipe] = useMutation(MUTATION_ADDRECIPE);
@@ -39,7 +45,7 @@ const RecipeForm = () => {
       prepInstructions: "",
       prepTime: "",
       cookTime: "",
-      difficulty: ""
+      difficulty: "",
     });
   };
 
@@ -114,27 +120,24 @@ const RecipeForm = () => {
 
         <Form.Group>
           <Form.Label htmlFor="difficulty">Difficulty</Form.Label>
-          <Form.Control
+          <Form.Select
             type="text"
-            placeholder="Difficulty"
             name="difficulty"
             onChange={handleInputChange}
             value={recipeFormData.difficulty}
             required
-          />
-          <Form.Control.Feedback type="invalid">
-            How tough is your recipe!
-          </Form.Control.Feedback>
+          >
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </Form.Select>
         </Form.Group>
-        <Button type="submit" onClick={() => handleFormSubmit()}>Add your recipe</Button>
+        <Button type="submit" onClick={() => handleFormSubmit()}>
+          Add your recipe
+        </Button>
       </Form>
-
-
-
     </>
-  )
-
-
+  );
 };
 
 export default RecipeForm;
