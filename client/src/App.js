@@ -13,7 +13,7 @@ import RecipeForm from "./components/addRecipe";
 
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "/graphql"
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -28,7 +28,7 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache()
 });
 
 function App() {

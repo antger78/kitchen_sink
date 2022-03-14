@@ -21,7 +21,7 @@ export const QUERY_RECIPES = gql`
         cookTime
         ingredients
         prepInstructions
-        userLikes
+        # userLikes
         likesCount
     }
 }
