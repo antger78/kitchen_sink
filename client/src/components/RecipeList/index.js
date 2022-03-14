@@ -4,6 +4,18 @@ import { useQuery } from "@apollo/client";
 import { QUERY_RECIPES } from "../../utils/queries";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./recipeList.css";
+import ReactTextCollapse from "react-text-collapse";
+const TEXT_COLLAPSE_OPTIONS = {
+  collapse: false, // default state when component rendered
+  collapseText: '... show more', // text to show when collapsed
+  expandText: 'show less', // text to show when expanded
+  minHeight: 100, // component height when closed
+  maxHeight: 150, // expanded to
+  textStyle: { // pass the css for the collapseText and expandText here
+    color: "blue",
+    fontSize: "20px"
+  }
+}
 
 const RecipeList = (props) => {
   // get data from db to populate cards
@@ -36,8 +48,11 @@ const RecipeList = (props) => {
                     )
                   })}
                 </ListGroup>
-                
+
+
+                <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
                 <Card.Text>Prep Instructions: {recipe.prepInstructions}</Card.Text>
+                </ReactTextCollapse>
               </Card.Body>
             </Card>
               )
