@@ -7,5 +7,14 @@
     "prepTime": "30",
     "cookTime": "20",
     "difficulty": "Medium"
+  },
+  {
+    "title": "17 Layer Cake",
+    "author": "6229557ac4ed5107ba82258f",
+    "ingredients": ["1 Chocolate Bar", "1 Cake", "1 cup flour", "4 eggs "],
+    "prepInstructions": "Take pork chop and dip into egg bath, then into panko breadcrumbs. In a cast iron skillet heat oil. Fry pork chops until golden brown and delicious!",
+    "prepTime": "30",
+    "cookTime": "20",
+    "difficulty": "Medium"
   }
 ]
