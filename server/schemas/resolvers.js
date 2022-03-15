@@ -23,7 +23,7 @@ const resolvers = {
 			// const search_term = args.input.filter.title;
 			const search_term = args.input;
 			const regex = new RegExp(search_term, 'i');
-			console.log("Keyword recipe resolver:", regex);
+			// console.log("Keyword recipe resolver:", regex);
 			
 			// const found = await Recipe.find({ title: { $regex: regex } } || { ingredients: { $regex: regex } });
 			// const found = await Recipe.find({ ingredients: [search_term] });

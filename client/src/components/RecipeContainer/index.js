@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Button, Container, Form, Row, Spinner } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Form, Row, Spinner, InputGroup } from "react-bootstrap";
 import RecipeList from "../RecipeList";
 import { useQuery } from "@apollo/client";
-import { QUERY_KEYWORDRECIPE, QUERY_RECIPES } from "../../utils/queries";
+import { QUERY_KEYWORDRECIPE } from "../../utils/queries";
 
 const RecipeContainer = () => {
   // const heading = props.currentCategory;
@@ -14,47 +14,30 @@ const RecipeContainer = () => {
   // update the user model with field 'likedRecipe':[{obj id refs: recipes}] for queries
   const [searchedRecipes, setSearchedRecipes] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const { loading, data } = useQuery(QUERY_RECIPES);
-  // if data exists, store in queriedRecipes const
-  const queriedRecipes = data?.recipes || [];
-  //   setSearchedRecipes(queriedRecipes);
-  console.log(queriedRecipes);
-
-  const { refetch } = useQuery(QUERY_KEYWORDRECIPE, {
+  const { loading, data } = useQuery(QUERY_KEYWORDRECIPE, {
     variables: { input: searchInput },
   });
-  console.log(searchedRecipes);
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    console.log(searchInput);
-    const { loading, data } = refetch();
-    const Recipes = data?.keywordRecipe || [];
-    if (!loading) {
-      setSearchedRecipes(Recipes);
+ 
+  useEffect(() => {
+    if (data) {
+      setSearchedRecipes(data.keywordRecipe);
     }
-  };
+  }, [data]);
 
   return (
     <Container fluid>
       {/* <h1>{category}</h1> */}
       <Row>
-        <Form>
-          <Form.Group>
-            <Form.Label>Looking for something specific?</Form.Label>
-            <Form onSubmit={handleFormSubmit}>
-              <Form.Control
+          <InputGroup>
+            <InputGroup.Text>Looking for something specific?</InputGroup.Text>
+            <Form.Control
                 name="searchInput"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 type="text"
                 placeholder="Search for a recipe"
               />
-              <Button type="submit">Submit Search</Button>
-            </Form>
-            {/* <Form.Control type="text" name="search_term" />
-                                <Button type='submit'>Search Recipes</Button> */}
-          </Form.Group>
-        </Form>
+          </InputGroup>
       </Row>
       {loading ? (
         <Spinner animation="border" />
