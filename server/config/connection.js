@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/programming-thoughts',
+  process.env.MONGODB_URI || 'mongodb://localhost/kitchen-sink',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

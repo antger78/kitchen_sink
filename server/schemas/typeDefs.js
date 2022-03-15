@@ -1,30 +1,73 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type Thought {
+  scalar Date
+
+  type User {
     _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
+    username: String
+    password: String
+    email: String
+    recipes: [Recipe]
   }
 
-  type Comment {
+  type Recipe {
     _id: ID
-    commentText: String
-    createdAt: String
+    title: String
+    author: String
+    createdAt: Date
+    ingredients: [String]
+    prepInstructions: String
+    prepTime: Int
+    cookTime: Int
+    difficulty: String
+    userLikes: [User]
+    likesCount: Int
+  }
+
+  # input RecipeSearchTerm {
+  #   title: String
+  # }
+
+  # input RecipeFilter {
+  #   filter: RecipeSearchTerm
+  # }
+
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Query {
-    thoughts: [Thought]!
-    thought(thoughtId: ID!): Thought
+    users: [User]
+    recipes: [Recipe]
+    recipe(_id: ID!): Recipe
+    keywordRecipe(input: String): [Recipe]
   }
 
   type Mutation {
-    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
+    addRecipe(
+      title: String!
+      ingredients: [String]
+      prepInstructions: String
+			prepTime: Int
+      cookTime:Int
+			difficulty: String
+    ): Recipe
+    deleteRecipe(_id: ID!): Recipe
+    updateRecipe(
+      _id: ID!
+      title: String
+      ingredients: [String]
+      prepInstructions: String
+      prepTime: Int
+      cookTime: Int
+      difficulty: String
+    ): Recipe
+    likeRecipe(_id: ID!): Recipe
   }
 `;
 
