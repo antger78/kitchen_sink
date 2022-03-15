@@ -35,21 +35,21 @@ const RecipeList = (props) => {
               <Card className="card col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-1">
                 {/* <Card.Img variant="top" alt="recipe card img" /> */}
                 <Card.Body>
-                  <Card.Title>{recipe.title}</Card.Title>
-                  <Card.Text><strong>Difficulty:</strong> {recipe.difficulty}</Card.Text>
-                  <Card.Subtitle><strong>Prep Time:</strong> {recipe.prepTime}</Card.Subtitle>
-                  <Card.Subtitle><strong>Cook Time:</strong> {recipe.cookTime}</Card.Subtitle>
+                  <Card.Title>{title}</Card.Title>
+                  <Card.Text><strong>Difficulty:</strong> {difficulty}</Card.Text>
+                  <Card.Subtitle><strong>Prep Time:</strong> {prepTime}</Card.Subtitle>
+                  <Card.Subtitle><strong>Cook Time:</strong> {cookTime}</Card.Subtitle>
 
                   <ListGroup variant="flush">
-                    {recipe.ingredients.map((ingredients) => {
+                    {ingredients.map((ingredient) => {
                       return (
-                        <ListGroup.Item>{ingredients}</ListGroup.Item>
+                        <ListGroup.Item>{ingredient}</ListGroup.Item>
                       )
                     })}
                   </ListGroup>
 
                   <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
-                    <Card.Text><strong>Prep Instructions:</strong> {recipe.prepInstructions}</Card.Text>
+                    <Card.Text><strong>Prep Instructions:</strong> {prepInstructions}</Card.Text>
                   </ReactTextCollapse>
                 </Card.Body>
               </Card>
