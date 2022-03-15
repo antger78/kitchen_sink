@@ -30,7 +30,7 @@ const RecipeContainer = () => {
   return (
     <Container fluid>
       {/* <h1>{category}</h1> */}
-      <Row className="card-row d-flex flex-row flex-wrap justify-content-around gy-4">
+      <Row >
           <InputGroup>
             <InputGroup.Text>Looking for something specific?</InputGroup.Text>
             <Form.Control
@@ -42,7 +42,7 @@ const RecipeContainer = () => {
               />
           </InputGroup>
       </Row>
-      <Row>
+      <Row className="card-row d-flex flex-row flex-wrap justify-content-around gy-4">
       {loading ? (
         <Spinner animation="border" />
       ) : (
