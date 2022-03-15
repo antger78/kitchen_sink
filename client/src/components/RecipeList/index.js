@@ -34,29 +34,33 @@ const RecipeList = (props) => {
   // const queriedRecipes = data?.recipes || [];
   // console.log(queriedRecipes);
   return (
+    <Card className="card col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-1">
+      {/* <Card.Img variant="top" alt="recipe card img" /> */}
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>
+          <strong>Difficulty:</strong> {difficulty}
+        </Card.Text>
+        <Card.Subtitle>
+          <strong>Prep Time:</strong> {prepTime}
+        </Card.Subtitle>
+        <Card.Subtitle>
+          <strong>Cook Time:</strong> {cookTime}
+        </Card.Subtitle>
 
-    <Row className="flex-row">
-      <Card id={id}>
-        {/* <Card.Img variant="top" alt="recipe card img" /> */}
-        <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>Difficulty: {difficulty}</Card.Text>
-          <Card.Subtitle>Prep Time: {prepTime}</Card.Subtitle>
-          <Card.Subtitle>Cook Time: {cookTime}</Card.Subtitle>
+        <ListGroup variant="flush">
+          {ingredients.map((ingredient) => {
+            return <ListGroup.Item>{ingredient}</ListGroup.Item>;
+          })}
+        </ListGroup>
 
-          <ListGroup variant="flush">
-            {ingredients.map((ingredient) => {
-              return <ListGroup.Item>{ingredient}</ListGroup.Item>;
-            })}
-          </ListGroup>
-
-          <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
-            <Card.Text>Prep Instructions: {prepInstructions}</Card.Text>
-          </ReactTextCollapse>
-        </Card.Body>
-      </Card>
-
-    </Row>
+        <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
+          <Card.Text>
+            <strong>Prep Instructions:</strong> {prepInstructions}
+          </Card.Text>
+        </ReactTextCollapse>
+      </Card.Body>
+    </Card>
   );
 };
 
