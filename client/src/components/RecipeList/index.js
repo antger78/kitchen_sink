@@ -13,15 +13,12 @@ const RecipeList = (props) => {
   console.log(queriedRecipes);
   return (
     <Row className="flex-row">
-      {
-        // map recipes to return cards, remember to add a key
-        <>
-          {loading ? (
-            <Spinner animation="border" />
-          ) : (
-            queriedRecipes.map((recipe) =>{
-              return (
-                <Card>
+      {loading ? (
+        <Spinner animation="border" />
+      ) : (
+        queriedRecipes.slice(0, 4).map((recipe) => {
+          return (
+            <Card>
               {/* <Card.Img variant="top" alt="recipe card img" /> */}
               <Card.Body>
                 <Card.Title>{recipe.title}</Card.Title>
@@ -31,23 +28,20 @@ const RecipeList = (props) => {
 
                 <ListGroup variant="flush">
                   {recipe.ingredients.map((ingredients) => {
-                    return (
-                      <ListGroup.Item>{ingredients}</ListGroup.Item>
-                    )
+                    return <ListGroup.Item>{ingredients}</ListGroup.Item>;
                   })}
                 </ListGroup>
-                
-                <Card.Text>Prep Instructions: {recipe.prepInstructions}</Card.Text>
+
+                <Card.Text>
+                  Prep Instructions: {recipe.prepInstructions}
+                </Card.Text>
               </Card.Body>
             </Card>
-              )
-            })
-          )}
-        </>
-      }
+          );
+        })
+      )}
     </Row>
   );
 };
-
 
 export default RecipeList;
