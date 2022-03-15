@@ -69,7 +69,7 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="mt-3">
           <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
             type="password"
@@ -87,8 +87,9 @@ const LoginForm = () => {
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
           variant="success"
+          className="mt-3"
         >
-          Submit
+          Login
         </Button>
       </Form>
     </>
