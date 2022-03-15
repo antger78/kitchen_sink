@@ -27,7 +27,8 @@ const resolvers = {
 			
 			// const found = await Recipe.find({ title: { $regex: regex } } || { ingredients: { $regex: regex } });
 			// const found = await Recipe.find({ ingredients: [search_term] });
-			const found = await Recipe.find({ ingredients: {$in: search_term} });
+			// const found = await Recipe.find({ title: { $regex: regex } } ||{ ingredients: {$in: search_term} });
+			const found = await Recipe.find({ title: { $regex: regex } });
 			console.log(found);
 			
 			return found;
