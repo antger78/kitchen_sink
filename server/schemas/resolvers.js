@@ -53,6 +53,8 @@ const resolvers = {
 			return { token, user };
 		},
 		addRecipe: async (parent, args, context) => {
+			
+			console.log("Is there a user?", context.req)
 			if (context.user) {
 				console.log(args);
 
@@ -69,6 +71,7 @@ const resolvers = {
 
 				await User.findOneAndUpdate(
 					{ _id: context.user._id },
+
 					{ $push: { recipes: recipe._id } },
 					{ new: true }
 				);
