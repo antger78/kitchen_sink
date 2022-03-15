@@ -30,7 +30,7 @@ const RecipeContainer = () => {
   return (
     <Container fluid>
       {/* <h1>{category}</h1> */}
-      <Row >
+      <Row className="my-4">
           <InputGroup>
             <InputGroup.Text>Looking for something specific?</InputGroup.Text>
             <Form.Control
