@@ -25,12 +25,10 @@ const RecipeList = (props) => {
   console.log(queriedRecipes);
   return (
     <Row className="card-row d-flex flex-row flex-wrap justify-content-around gy-4">
-
-      {// map recipes to return cards, remember to add a key
-        loading ? (
-          <Spinner animation="border" />
-        ) : (
-          queriedRecipes.map((recipe) => {
+          {loading ? (
+            <Spinner animation="border" />
+          ) : (
+            queriedRecipes.slice(0,6).map((recipe) =>{
             return (
               <Card className="card col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-1">
                 {/* <Card.Img variant="top" alt="recipe card img" /> */}
@@ -41,11 +39,12 @@ const RecipeList = (props) => {
                   <Card.Subtitle><strong>Cook Time:</strong> {recipe.cookTime}</Card.Subtitle>
 
                   <ListGroup variant="flush">
-                    {recipe.ingredients.map((ingredients) => {
+                    {recipe.ingredients.map((ingredient) => {
                       return (
-                        <ListGroup.Item>{ingredients}</ListGroup.Item>
+                        <ListGroup.Item>{ingredient}</ListGroup.Item>
                       )
-                    })}
+                    })
+                    }
                   </ListGroup>
 
                   <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
