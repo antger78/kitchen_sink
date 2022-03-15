@@ -23,11 +23,12 @@ const resolvers = {
 			// const search_term = args.input.filter.title;
 			const search_term = args.input;
 			const regex = new RegExp(search_term, 'i');
-			console.log("Keyword recipe resolver:", regex);
+			// console.log("Keyword recipe resolver:", regex);
 			
 			// const found = await Recipe.find({ title: { $regex: regex } } || { ingredients: { $regex: regex } });
 			// const found = await Recipe.find({ ingredients: [search_term] });
-			const found = await Recipe.find({ ingredients: {$in: search_term} });
+			// const found = await Recipe.find({ title: { $regex: regex } } ||{ ingredients: {$in: search_term} });
+			const found = await Recipe.find({ title: { $regex: regex } });
 			console.log(found);
 			
 			return found;
@@ -53,6 +54,8 @@ const resolvers = {
 			return { token, user };
 		},
 		addRecipe: async (parent, args, context) => {
+			
+			console.log("Is there a user?", context.req)
 			if (context.user) {
 				console.log(args);
 
@@ -69,6 +72,7 @@ const resolvers = {
 
 				await User.findOneAndUpdate(
 					{ _id: context.user._id },
+
 					{ $push: { recipes: recipe._id } },
 					{ new: true }
 				);
