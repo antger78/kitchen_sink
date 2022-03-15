@@ -9,7 +9,7 @@ const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const startServer = async () => {
+// const startServer = async () => {
   // create a new Apollo server and pass in schema
   const server = new ApolloServer({
     typeDefs,
@@ -18,12 +18,12 @@ const startServer = async () => {
   });
 
   // start server and apply middleware
-  await server.start();
+  // await server.start();
   server.applyMiddleware({ app });
   console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-};
+// };
 
-startServer();
+// startServer();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

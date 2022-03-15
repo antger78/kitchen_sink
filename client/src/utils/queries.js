@@ -58,3 +58,21 @@ export const QUERY_KEYWORDRECIPE = gql`
     }
   }
 `;
+
+export const QUERY_ME = gql`
+query {
+  me{
+    recipes{
+      _id
+      title
+      author
+      ingredients
+      prepTime
+      cookTime
+      prepInstructions
+      difficulty
+      likesCount
+    }
+  }
+}
+`;

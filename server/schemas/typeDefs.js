@@ -40,10 +40,13 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: User
     users: [User]
     recipes: [Recipe]
     recipe(_id: ID!): Recipe
     keywordRecipe(input: String): [Recipe]
+    # userRecipes(input:String): [Recipe]
+    # userFavoriteRecipes (input:String): [Recipe]
   }
 
   type Mutation {
