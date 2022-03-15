@@ -31,7 +31,7 @@ const RecipeList = (props) => {
           {loading ? (
             <Spinner animation="border" />
           ) : (
-            queriedRecipes.map((recipe) =>{
+            queriedRecipes.slice(0,6).map((recipe) =>{
               return (
                 <Card>
               {/* <Card.Img variant="top" alt="recipe card img" /> */}
