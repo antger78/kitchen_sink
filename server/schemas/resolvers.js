@@ -4,9 +4,6 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
 	Query: {
-		/*keywordRecipe: async (parent, args) => {
-			return Recipe.find({title:{regex: '^' + args.search_text, $options: 'i'}})
-		},*/
 		recipes: async () => {
 			return Recipe.find().sort({ createdAt: -1 });
 		},
@@ -18,19 +15,9 @@ const resolvers = {
 			return Recipe.findOne({ _id });
 		},
 		keywordRecipe: async (parent, args) => {
-			console.log(args);
-			
-			// const search_term = args.input.filter.title;
 			const search_term = args.input;
 			const regex = new RegExp(search_term, 'i');
-			// console.log("Keyword recipe resolver:", regex);
-			
-			// const found = await Recipe.find({ title: { $regex: regex } } || { ingredients: { $regex: regex } });
-			// const found = await Recipe.find({ ingredients: [search_term] });
-			// const found = await Recipe.find({ title: { $regex: regex } } ||{ ingredients: {$in: search_term} });
 			const found = await Recipe.find({ title: { $regex: regex } });
-			console.log(found);
-			
 			return found;
 		}
 	},
