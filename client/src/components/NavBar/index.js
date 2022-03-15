@@ -20,34 +20,38 @@ const AppNavbar = (props) => {
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Container fluid>
-          <Navbar.Brand as={Link} to="/">
-            Everything But the Kitchen Sink
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar" />
-          <Navbar.Collapse id="navbar">
-            <Nav className="ml-auto">
-              {/* if user is logged in show saved books and logout */}
-              {Auth.loggedIn() ? (
-                <>
-                  <Nav.Link as={Link} to='/add-recipe' onClick={() => setCurrentCategory(categories[3])} >
-                    Add a Recipe
+        <Container fluid className="d-flex flex-row justify-content-between">
+          <div>
+            <Navbar.Brand as={Link} to="/">
+              Everything But the Kitchen Sink
+            </Navbar.Brand>
+          </div>
+          <div>
+            <Navbar.Toggle aria-controls="navbar" />
+            <Navbar.Collapse id="navbar">
+              <Nav className="ml-auto">
+                {/* if user is logged in show saved books and logout */}
+                {Auth.loggedIn() ? (
+                  <>
+                    <Nav.Link as={Link} to='/add-recipe' onClick={() => setCurrentCategory(categories[3])} >
+                      Add a Recipe
+                    </Nav.Link>
+                    <Nav.Link as={Link} to='/your-recipes' onClick={() => setCurrentCategory(categories[1])}>
+                      Your Recipes
+                    </Nav.Link>
+                    <Nav.Link as={Link} to='/liked-recipes' onClick={() => setCurrentCategory(categories[2])}>
+                      Liked Recipes
+                    </Nav.Link>
+                    <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  </>
+                ) : (
+                  <Nav.Link onClick={() => setShowModal(true)}>
+                    Login/Sign Up
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/your-recipes' onClick={() => setCurrentCategory(categories[1])}>
-                    Your Recipes
-                  </Nav.Link>
-                  <Nav.Link as={Link} to='/liked-recipes' onClick={() => setCurrentCategory(categories[2])}>
-                    Liked Recipes
-                  </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-                </>
-              ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>
-                  Login/Sign Up
-                </Nav.Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
+                )}
+              </Nav>
+            </Navbar.Collapse>
+          </div>
         </Container>
       </Navbar>
       {/* set modal data up */}

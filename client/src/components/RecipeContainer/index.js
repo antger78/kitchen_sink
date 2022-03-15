@@ -14,9 +14,9 @@ const RecipeContainer = (props) => {
 
 
     return (
-        <Container fluid>
+        <Container fluid className="m-2 m-auto">
             <h1>{category}</h1>
-            <Row>
+            <Row className="mb-3">
                 <Form className="col-12">
                         <Form.Group className="input-group">
                             {/* <Form.Label>Looking for something specific?</Form.Label> */}

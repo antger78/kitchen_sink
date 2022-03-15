@@ -66,7 +66,7 @@ const SignupForm = () => {
             <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
           </Form.Group>
   
-          <Form.Group>
+          <Form.Group className="mt-3">
             <Form.Label htmlFor='email'>Email</Form.Label>
             <Form.Control
               type='email'
@@ -79,7 +79,7 @@ const SignupForm = () => {
             <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
           </Form.Group>
   
-          <Form.Group>
+          <Form.Group className="mt-3">
             <Form.Label htmlFor='password'>Password</Form.Label>
             <Form.Control
               type='password'
@@ -94,8 +94,10 @@ const SignupForm = () => {
           <Button
             disabled={!(userFormData.username && userFormData.email && userFormData.password)}
             type='submit'
-            variant='success'>
-            Submit
+            variant='success'
+            className="mt-3"  
+          >
+            Sign up
           </Button>
         </Form>
       </>
