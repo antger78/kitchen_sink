@@ -34,6 +34,7 @@ const RecipeList = (props) => {
   // const queriedRecipes = data?.recipes || [];
   // console.log(queriedRecipes);
   return (
+
     <Row className="flex-row">
       <Card id={id}>
         {/* <Card.Img variant="top" alt="recipe card img" /> */}
@@ -54,6 +55,7 @@ const RecipeList = (props) => {
           </ReactTextCollapse>
         </Card.Body>
       </Card>
+
     </Row>
   );
 };

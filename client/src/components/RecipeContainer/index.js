@@ -1,8 +1,11 @@
+
 import React, { useState, useEffect } from "react";
 import { Container, Form, Row, Spinner, InputGroup } from "react-bootstrap";
+
 import RecipeList from "../RecipeList";
 import { useQuery } from "@apollo/client";
 import { QUERY_KEYWORDRECIPE } from "../../utils/queries";
+
 
 const RecipeContainer = () => {
   // const heading = props.currentCategory;
@@ -63,3 +66,6 @@ const RecipeContainer = () => {
 };
 
 export default RecipeContainer;
+
+
+
