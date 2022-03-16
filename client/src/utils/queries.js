@@ -57,6 +57,7 @@ export const QUERY_KEYWORDRECIPE = gql`
       ingredients
       prepInstructions
       likesCount
+      userLikes
     }
   }
 `;

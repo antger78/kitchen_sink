@@ -88,3 +88,20 @@ mutation ($_id: ID!) {
   }
 }
 `;
+
+export const MUTATION_REMOVELIKE = gql`
+mutation ($_id: ID!) {
+  unlikeRecipe (_id: $_id) {
+    title
+    prepTime
+    cookTime
+    prepInstructions
+    difficulty
+    ingredients
+    userLikes {
+      _id
+    }
+    likesCount
+  }
+}
+`
