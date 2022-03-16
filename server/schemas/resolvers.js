@@ -24,13 +24,32 @@ const resolvers = {
 			// const found = await Recipe.find({ title: { $regex: regex } } || { ingredients: { $regex: regex } });
 			// const found = await Recipe.find({ ingredients: [search_term] });
 			// const found = await Recipe.find({ title: { $regex: regex } } ||{ ingredients: {$in: search_term} });
-			const found = await Recipe.find({ title: { $regex: regex } });
+			const found = await Recipe.find({ title: { $regex: regex }});
 			console.log(found);
 			
 			return found;
 		},
 		// userRecipes
+		// userRecipes: async  (parent, args, context)=> {
+		// 	if (context.user) {
+		// 		return await User.findOne({ _id: context.user._id })
+					// .populate({
+					// 	path:'recipes',
+					// });
+		// 	}
+		// }
 		// userFavoriteRecipes
+		userFavoriteRecipes: async (parent, args, context) => {
+			if (context.user) {
+				const userData = await User.findOne({ _id: context.user._id} ).populate({
+					path: "likedRecipes",
+					select:'-__v'	
+				});
+				return userData;
+			}
+			throw new AuthenticationError("Not logged in")
+
+		},
 	},
 
 	Mutation: {
@@ -91,7 +110,8 @@ const resolvers = {
 			throw new AuthenticationError('You must be logged in');
 		},
 		likeRecipe: async (parent, args, context) => {
-			if (context.user._id) {
+			if (context.user) {
+				console.log(context);
 				// add user id recipe userLikes for count
 				const likedRecipe = await Recipe.findOneAndUpdate(
 					{ _id: args._id },

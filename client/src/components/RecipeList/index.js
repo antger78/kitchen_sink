@@ -1,7 +1,5 @@
 import React from "react";
-import { Card, ListGroup, Row, Spinner } from "react-bootstrap";
-import { useQuery } from "@apollo/client";
-import { QUERY_RECIPES } from "../../utils/queries";
+import { Card, ListGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./recipeList.css";
 import ReactTextCollapse from "react-text-collapse";
@@ -21,15 +19,14 @@ const TEXT_COLLAPSE_OPTIONS = {
 const RecipeList = (props) => {
   const {
     id,
+    author,
     title,
     difficulty,
     prepInstructions,
     prepTime,
     cookTime,
     ingredients,
-    // userLikes,
-    author,
-    likeCount
+    likesCount,
   } = props;
  
   // query userLikes arr for context
@@ -40,23 +37,36 @@ const RecipeList = (props) => {
 
   // handle remove like
   return (
-    <Card className="card col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-1">
+    <Card
+      className="card col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-1"
+      key={id}
+    >
       {/* <Card.Img variant="top" alt="recipe card img" /> */}
+      <Card.Header className="container-fluid card-head ">
+        <Card.Title>
+          <span className="fa-solid fa-heart"></span>
+          {title}
+        </Card.Title>
+        <Card.Subtitle>by {author}</Card.Subtitle>
+        {likesCount === 1 ? (
+          <p>{likesCount} person likes this recipe</p>
+        ) : (
+          <p>{likesCount} people like this recipe</p>
+        )}
+      </Card.Header>
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
         <Card.Text>
           <strong>Difficulty:</strong> {difficulty}
         </Card.Text>
         <Card.Subtitle>
-          <strong>Prep Time:</strong> {prepTime}
+          <strong>Prep Time:</strong> {prepTime} | <strong>Cook Time:</strong>{" "}
+          {cookTime}
         </Card.Subtitle>
-        <Card.Subtitle>
-          <strong>Cook Time:</strong> {cookTime}
-        </Card.Subtitle>
+        <Card.Subtitle></Card.Subtitle>
 
         <ListGroup variant="flush">
-          {ingredients.map((ingredient) => {
-            return <ListGroup.Item>{ingredient}</ListGroup.Item>;
+          {ingredients.map((ingredient, i) => {
+            return <ListGroup.Item key={i}>{ingredient}</ListGroup.Item>;
           })}
         </ListGroup>
 
