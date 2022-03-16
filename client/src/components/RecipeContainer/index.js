@@ -47,8 +47,9 @@ const RecipeContainer = () => {
           />
         </InputGroup>
       </Row>
+      <h4 className="col-12 title">Recently Posted Recipes</h4>
 			<Row xs={1} md={2} lg={3}>
-        <Col className="col-12 title">Recently Posted Recipes</Col>
+        {/* <Col className="col-12 title">Recently Posted Recipes</Col> */}
         {loading ? (
           <Spinner animation="border" />
         ) : (

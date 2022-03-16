@@ -3,8 +3,8 @@ import "./footer.css";
 
 function Footer() {
 	return (
-		<footer>
-			<div className="container App-footer">
+		<footer className="App-footer">
+			<div className="container">
 				<div className="row">
 					<a href="https://github.com/antger78/kitchen_sink">
 						<i className="fa-brands fa-github-square fa-2x"></i>
