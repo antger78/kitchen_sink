@@ -40,6 +40,7 @@ mutation (
       ingredients:$ingredients
     ) {
       title
+      author
       prepInstructions
       prepTime
       difficulty
@@ -75,11 +76,32 @@ export const MUTATION_LIKERECIPE = gql`
 mutation ($_id: ID!) {
   likeRecipe (_id: $_id) {
     title
-    author
-    likesCount
+    prepTime
+    cookTime
+    prepInstructions
+    difficulty
+    ingredients
     userLikes {
       _id
     }
+    likesCount
   }
 }
 `;
+
+export const MUTATION_REMOVELIKE = gql`
+mutation ($_id: ID!) {
+  unlikeRecipe (_id: $_id) {
+    title
+    prepTime
+    cookTime
+    prepInstructions
+    difficulty
+    ingredients
+    userLikes {
+      _id
+    }
+    likesCount
+  }
+}
+`
