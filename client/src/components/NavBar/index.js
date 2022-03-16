@@ -24,7 +24,7 @@ const AppNavbar = (props) => {
 				<Container fluid className="d-flex flex-row justify-content-between">
 					<div className="navBlock">
 						<Navbar.Brand as={Link} to="/">
-							Everything But the Kitchen Sink
+							<h1>Everything But the Kitchen Sink</h1>
 						</Navbar.Brand>
 					</div>
 					<div>

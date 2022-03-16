@@ -27,7 +27,6 @@ const RecipeContainer = () => {
 
 	return (
 		<Container fluid className="mainBackground">
-			{/* <h1>{category}</h1> */}
 			<Row>
 				<InputGroup>
 					<InputGroup.Text>Looking for something specific?</InputGroup.Text>
@@ -40,7 +39,7 @@ const RecipeContainer = () => {
 					/>
 				</InputGroup>
 			</Row>
-			<Row>
+			<Row xs={1} md={2} lg={3}>
 				{loading ? (
 					<Spinner animation="border" />
 				) : (
