@@ -38,8 +38,8 @@ To add your own recipe to our ever-growing collection, click the 'Add Recipe' li
 
 You can view the recipes you have created and recipes you've liked by clicking on the appropriate tabs in the nav bar.
 
-<img src='/client/public/images/your-recipes-preview.png' alt='your page preview' width='48%'>
-<img src='/client/public/images/liked-recipes-preview.png' alt='likes page preview' width='49%'>
+<img src='/client/public/images/your-recipes-preview.png' alt='your page preview' width='80%'>
+<img src='/client/public/images/liked-recipes-preview.png' alt='likes page preview' width='80%'>
 
 ## Contributing
 Kitchen Sink was designed and built by **The Band**, a team of developers enrolled in Columbia University's Full Stack Engineering Bootcamp. You can find us on GitHub:
