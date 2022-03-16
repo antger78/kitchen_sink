@@ -9,6 +9,7 @@ const typeDefs = gql`
     password: String
     email: String
     recipes: [Recipe]
+    likedRecipes: [Recipe]
   }
 
   type Recipe {
@@ -24,15 +25,6 @@ const typeDefs = gql`
     userLikes: [User]
     likesCount: Int
   }
-
-  # input RecipeSearchTerm {
-  #   title: String
-  # }
-
-  # input RecipeFilter {
-  #   filter: RecipeSearchTerm
-  # }
-
 
   type Auth {
     token: ID!
