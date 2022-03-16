@@ -36,6 +36,8 @@ const typeDefs = gql`
     recipes: [Recipe]
     recipe(_id: ID!): Recipe
     keywordRecipe(input: String): [Recipe]
+    userRecipes: [Recipe]
+    userFavoriteRecipes: User
   }
 
   type Mutation {

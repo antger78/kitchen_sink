@@ -30,7 +30,7 @@ const RecipeContainer = () => {
   return (
     <Container fluid>
       {/* <h1>{category}</h1> */}
-      <Row >
+      <Row className="my-2">
           <InputGroup>
             <InputGroup.Text>Looking for something specific?</InputGroup.Text>
             <Form.Control
@@ -57,6 +57,8 @@ const RecipeContainer = () => {
               prepTime={recipe.prepTime}
               cookTime={recipe.cookTime}
               ingredients={recipe.ingredients}
+              author={recipe.author}
+              likesCount={recipe.likesCount}
             />
           );
         })
