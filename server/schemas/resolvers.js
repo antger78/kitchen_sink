@@ -4,13 +4,9 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
 	Query: {
-		/*keywordRecipe: async (parent, args) => {
-			return Recipe.find({title:{regex: '^' + args.search_text, $options: 'i'}})
-		},*/
 		recipes: async () => {
 			return Recipe.find().sort({ createdAt: -1 });
 		},
-
 		users: async () => {
 			return User.find();
 		},
@@ -32,7 +28,9 @@ const resolvers = {
 			console.log(found);
 			
 			return found;
-		}
+		},
+		// userRecipes
+		// userFavoriteRecipes
 	},
 
 	Mutation: {
@@ -94,11 +92,20 @@ const resolvers = {
 		},
 		likeRecipe: async (parent, args, context) => {
 			if (context.user._id) {
+				// add user id recipe userLikes for count
 				const likedRecipe = await Recipe.findOneAndUpdate(
 					{ _id: args._id },
 					{ $push: { userLikes: context.user._id } },
 					{ new: true }
 				);
+
+				// add recipe to user's list of favorites
+				await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $push: { likedRecipes: likedRecipe._id }},
+					{ new: true }
+				);
+
 				return likedRecipe;
 			}
 			throw new AuthenticationError('You must be logged in');
