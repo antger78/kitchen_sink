@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useMutation } from "@apollo/client";
 import "./recipeList.css";
 import {
-  MUTATION_LIKERECIPE, /*MUTATION_REMOVELIKE*/
+  MUTATION_LIKERECIPE,
   MUTATION_REMOVELIKE,
 } from "../../utils/mutations";
 import { QUERY_KEYWORDRECIPE } from "../../utils/queries";
@@ -43,10 +43,10 @@ const RecipeList = (props) => {
 
   useEffect(() => {
     console.log(Auth)
-    if (Auth.loggedIn) {
-      // if (userLikes.some((like) => like === Auth.getProfile().data._id)) {
-      //   setIsLiked(true);
-      // }
+    if (Auth.loggedIn()) {
+      if (userLikes.some((like) => like === Auth.getProfile().data._id)) {
+       setIsLiked(true);
+      }
     }
   }, [userLikes]);
 
@@ -101,18 +101,21 @@ const RecipeList = (props) => {
           {title}
         </Card.Title>
         {Auth.loggedIn() ? (
-          isLiked ? (
-            <Button  className="like-active">
+          <h5>
+          {isLiked ? (
+            <a href="#!" className="text-danger">
               <i
-                className="fa-solid fa-heart btn text-danger"
-                onClick={handleAddLike}
-              ></i>
-            </Button>
+                className="fa-solid fa-heart text-danger"
+                onClick={handleRemoveLike}
+              >
+              </i>
+            </a>
           ) : (
-            <Button variant="link" className="text-secondary">
-              <i className="fa-solid fa-heart" onClick={handleRemoveLike}></i>
-            </Button>
-          )
+            <a href="#!" className="text-secondary">
+              <i className="fa-solid fa-heart" onClick={handleAddLike}></i>
+            </a>
+          )}
+          </h5>
         ) : (
           ""
         )}
