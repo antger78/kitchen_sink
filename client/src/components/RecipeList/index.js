@@ -11,7 +11,7 @@ const TEXT_COLLAPSE_OPTIONS = {
 	maxHeight: 150, // expanded to
 	textStyle: {
 		// pass the css for the collapseText and expandText here
-		color: "blue",
+		color: "#DE342E",
 		fontSize: "20px",
 	},
 };

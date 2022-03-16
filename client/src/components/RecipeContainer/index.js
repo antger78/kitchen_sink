@@ -27,7 +27,7 @@ const RecipeContainer = () => {
 
 	return (
 		<Container fluid className="mainBackground">
-			<Row>
+			<Row className="py-2">
 				<InputGroup>
 					<InputGroup.Text>Looking for something specific?</InputGroup.Text>
 					<Form.Control

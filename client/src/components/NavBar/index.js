@@ -4,8 +4,8 @@ import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import "./navbar.css";
 import SignUpForm from "../Signup";
 import LoginForm from "../Login";
-
 import Auth from "../../utils/auth";
+import tomatoIcon from "../../images/tomato.svg";
 
 const AppNavbar = (props) => {
 	// set modal display state
@@ -21,22 +21,26 @@ const AppNavbar = (props) => {
 	return (
 		<>
 			<Navbar variant="dark" expand="lg" className="brown">
-				<Container fluid className="d-flex flex-row justify-content-between">
-					<div className="navBlock">
-						<Navbar.Brand as={Link} to="/">
-							<h1>Everything But the Kitchen Sink</h1>
-						</Navbar.Brand>
-					</div>
+				<Container
+					fluid
+					// style={{ fontSize: 30, color: "#DE342E" }}
+					className="d-flex flex-row justify-content-between navBlock"
+				>
+					<Navbar.Brand as={Link} to="/" className="headerFont">
+						Everything But the Kitchen Sink
+						<img src={tomatoIcon} width="10%" alt="Tomato logo" />
+					</Navbar.Brand>
 					<div>
 						<Navbar.Toggle aria-controls="navbar" />
 						<Navbar.Collapse id="navbar">
-							<Nav className="ml-auto">
+							<Nav className="ml-auto linkCategories">
 								{/* if user is logged in show saved books and logout */}
 								{Auth.loggedIn() ? (
 									<>
 										<Nav.Link
 											as={Link}
 											to="/add-recipe"
+											// style={}
 											onClick={() => setCurrentCategory(categories[3])}
 										>
 											Add a Recipe
