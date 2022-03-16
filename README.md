@@ -26,20 +26,20 @@ To run Kitchen Sink locally, download or clone this repository. Navigate to the 
 ## Usage
 You can find Kitchen Sink [here](https://kitchen-sink.herokuapp.com/). To search for a recipe, simply begin typing in the search bar. Matching results will pop up.
 
-<img src='' alt='main page preview' width='80%'>
+<img src='/client/public/images/home-preview.png' alt='main page preview' width='80%'>
 
 In the navigation bar, you'll see a button to login/sign up. Clicking this link will open a modal for users to login. You can also sign up from this modal by clicking the 'Sign up' tab.
 
-<img src='' alt='login/signup preview' width='80%'>
+<img src='/client/public/images/login-signup-preview.png' alt='login/signup preview' width='80%'>
 
 To add your own recipe to our ever-growing collection, click the 'Add Recipe' link in the nav bar. This link will only appear _if you are logged in_. Fill out the form with all you recipe information, then click submit when you're done.
 
-<img src='' alt='add recipe form preview' width='80%'>
+<img src='/client/public/images/add-recipe-preview.png' alt='add recipe form preview' width='80%'>
 
 You can view the recipes you have created and recipes you've liked by clicking on the appropriate tabs in the nav bar.
 
-<img src='' alt='your page preview' width='45%'>
-<img src='' alt='likes page preview' width='45%'>
+<img src='/client/public/images/your-recipes-preview.png' alt='your page preview' width='48%'>
+<img src='/client/public/images/liked-recipes-preview.png' alt='likes page preview' width='49%'>
 
 ## Contributing
 Kitchen Sink was designed and built by **The Band**, a team of developers enrolled in Columbia University's Full Stack Engineering Bootcamp. You can find us on GitHub:
