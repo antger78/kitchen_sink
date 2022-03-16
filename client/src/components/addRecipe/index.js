@@ -88,6 +88,7 @@ const RecipeForm = () => {
       difficulty: "",
     });
     redirect();
+    window.location.reload();
   };
 
   return (

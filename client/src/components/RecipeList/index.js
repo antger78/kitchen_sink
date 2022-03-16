@@ -44,7 +44,7 @@ const RecipeList = (props) => {
   useEffect(() => {
     console.log(Auth)
     if (Auth.loggedIn()) {
-      if (userLikes.some((like) => like === Auth.getProfile().data._id)) {
+      if (userLikes?.some((like) => like === Auth.getProfile().data._id)) {
        setIsLiked(true);
       }
     }
