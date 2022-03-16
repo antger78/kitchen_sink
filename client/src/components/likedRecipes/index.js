@@ -20,7 +20,7 @@ const LikedRecipes = () => {
   return (
     <Container fluid>
       {/* <h1>{category}</h1> */}
-      <Row>
+      {/* <Row>
         <InputGroup>
           <InputGroup.Text>Looking for something specific?</InputGroup.Text>
           <Form.Control
@@ -31,7 +31,7 @@ const LikedRecipes = () => {
             placeholder="Search for a recipe"
           />
         </InputGroup>
-      </Row>
+      </Row> */}
       <Row className="card-row d-flex flex-row flex-wrap justify-content-around gy-4">
         {loading ? (
           <Spinner animation="border" />

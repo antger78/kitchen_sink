@@ -31,8 +31,8 @@ const resolvers = {
     },
 
     me: async (parent, args, context) => {
-      const search_term = args.input;
-      const regex = new RegExp(search_term, "i");
+    //   const search_term = args.input;
+    //   const regex = new RegExp(search_term, "i");
 
       if (context.user) {
         const userData = await User.findOne({
