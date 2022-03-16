@@ -139,7 +139,7 @@ const RecipeForm = () => {
                 </div>
               );
             })}
-            <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
+            {/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
           </div>
         </Form.Group>
 

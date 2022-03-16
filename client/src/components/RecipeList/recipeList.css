@@ -1,8 +1,17 @@
 .card {
-    min-width: 15rem;
-    max-width: 90%;
+    min-width: 20rem;
+    padding: 0;
+    margin: auto;
 }
 
-.card-row {
-    
+.card-head {
+    width: 100%;
+}
+
+.card-sleeve {
+    padding: 0 2% 0 2%;
+}
+
+.like-active {
+    color: #DE342E;
 }
