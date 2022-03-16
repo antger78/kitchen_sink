@@ -1,18 +1,18 @@
-.card {
-    min-width: 20rem;
-
-    padding: 0;
-    margin: auto;
-}
+/* .card {
+    margin: px;
+    min-width: 20em;
+    max-width: 90%;
+} */
 
 .card-head {
     width: 100%;
+} 
+
+.cardTitle {
+    border-bottom: 2px solid #DE342E;
 }
 
-.card-sleeve {
-    padding: 0 2% 0 2%;
-}
-
-.like-active {
-    color: #DE342E;
+.cardDifficulty {
+    border-Top: 2px solid Navy;
+    font-weight: bold;
 }

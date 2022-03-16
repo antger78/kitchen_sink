@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, ListGroup, Alert, Button } from "react-bootstrap";
+import { Card, Col, ListGroup, Alert, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useMutation } from "@apollo/client";
 import "./recipeList.css";
@@ -11,6 +11,7 @@ import { QUERY_KEYWORDRECIPE } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import ReactTextCollapse from "react-text-collapse";
 const TEXT_COLLAPSE_OPTIONS = {
+
   collapse: false, // default state when component rendered
   collapseText: "... show more", // text to show when collapsed
   expandText: "show less", // text to show when expanded
@@ -19,7 +20,7 @@ const TEXT_COLLAPSE_OPTIONS = {
   textStyle: {
     // pass the css for the collapseText and expandText here
     color: "blue",
-    fontSize: "1rem",
+    fontSize: "1.25rem",
   },
 };
 
@@ -80,8 +81,9 @@ const RecipeList = (props) => {
   };
 
   return (
+    <Col className="my-2">
     <Card
-      className="card col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-1"
+      // className="card col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-1"
       key={id}
     >
       {/* <Alert
@@ -93,8 +95,8 @@ const RecipeList = (props) => {
         Something went wrong...
       </Alert> */}
       {/* <Card.Img variant="top" alt="recipe card img" /> */}
-      <Card.Header className="container-fluid card-head mt-1">
-        <Card.Title className="d-flex flex-row justify-content-between">
+      <Card.Header>
+					<Card.Title as="h4">
           {title}
         </Card.Title>
         {Auth.loggedIn() ? (
@@ -147,6 +149,7 @@ const RecipeList = (props) => {
         </ReactTextCollapse>
       </Card.Body>
     </Card>
+    </Col>
   );
 };
 
