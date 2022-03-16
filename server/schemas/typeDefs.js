@@ -32,10 +32,13 @@ const typeDefs = gql`
   }
 
   type Query {
+    me(input: String): User
     users: [User]
     recipes: [Recipe]
     recipe(_id: ID!): Recipe
     keywordRecipe(input: String): [Recipe]
+    # userRecipes(input:String): [Recipe]
+    userFavoriteRecipes: User
   }
 
   type Mutation {
@@ -45,9 +48,9 @@ const typeDefs = gql`
       title: String!
       ingredients: [String]
       prepInstructions: String
-			prepTime: Int
-      cookTime:Int
-			difficulty: String
+      prepTime: Int
+      cookTime: Int
+      difficulty: String
     ): Recipe
     deleteRecipe(_id: ID!): Recipe
     updateRecipe(

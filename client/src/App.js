@@ -10,6 +10,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import RecipeContainer from "./components/RecipeContainer";
 import RecipeForm from "./components/addRecipe";
+import UserRecipes from "./components/UserRecipes";
+import LikedRecipes from "./components/LikedRecipes";
 
 
 const httpLink = createHttpLink({
@@ -56,12 +58,12 @@ function App() {
 
             {/* show recipe container with "Your Recipes" h1 */}
             <Route exact path="/your-recipes">
-              <RecipeContainer category={categories[1]}  />
+              <UserRecipes category={categories[1]}  />
             </Route> 
 
             {/* show recipe container with "Your Fave Recipes" h1 */}
             <Route exact path="/liked-recipes">
-              <RecipeContainer category={categories[2]}  />
+              <LikedRecipes category={categories[2]}  />
             </Route> 
 
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
