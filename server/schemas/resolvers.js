@@ -14,27 +14,14 @@ const resolvers = {
       return Recipe.findOne({ _id });
     },
     keywordRecipe: async (parent, args) => {
-      console.log(args);
-
-      // const search_term = args.input.filter.title;
       const search_term = args.input;
       const regex = new RegExp(search_term, "i");
-      // console.log("Keyword recipe resolver:", regex);
-
-      // const found = await Recipe.find({ title: { $regex: regex } } || { ingredients: { $regex: regex } });
-      // const found = await Recipe.find({ ingredients: [search_term] });
-      // const found = await Recipe.find({ title: { $regex: regex } } ||{ ingredients: {$in: search_term} });
       const found = await Recipe.find({ title: { $regex: regex } });
-      console.log(found);
-
       return found;
     },
-
-
     me: async (parent, args, context) => {
     //   const search_term = args.input;
     //   const regex = new RegExp(search_term, "i");
-
       if (context.user) {
         const userData = await User.findOne({
           _id: context.user._id,
@@ -125,9 +112,7 @@ const resolvers = {
         // add recipe to user's list of favorites
         await User.findOneAndUpdate(
           { _id: context.user._id },
-
           { $addToSet: { likedRecipes: args._id } },
-
           { new: true }
         );
 

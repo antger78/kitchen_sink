@@ -42,9 +42,8 @@ const RecipeList = (props) => {
   const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
-    console.log(Auth)
     if (Auth.loggedIn()) {
-      if (userLikes.some((like) => like === Auth.getProfile().data._id)) {
+      if (userLikes?.some(like => like == Auth.getProfile().data.user._id)) {
        setIsLiked(true);
       }
     }
@@ -61,7 +60,6 @@ const RecipeList = (props) => {
 
   // handle add like
   const handleAddLike = async () => {
-    console.log("clicked!");
     try {
       await addLike({ variables: { _id: id } });
       setIsLiked(true);
@@ -73,7 +71,6 @@ const RecipeList = (props) => {
 
   // handle remove like
   const handleRemoveLike = async () => {
-    console.log("unclicked!");
     try {
       await removeLike({ variables: { _id: id } });
       setIsLiked(false);
