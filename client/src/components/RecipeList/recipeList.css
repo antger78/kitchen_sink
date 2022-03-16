@@ -1,8 +1,9 @@
 .card {
-    min-width: 15rem;
+    min-width: 20rem;
     max-width: 90%;
+    padding: 0;
 }
 
-.card-row {
-    
+.card-head {
+    width: 100%;
 }
