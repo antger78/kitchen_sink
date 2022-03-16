@@ -1,8 +1,18 @@
-.card {
-    min-width: 15rem;
+/* .card {
+    margin: px;
+    min-width: 20em;
     max-width: 90%;
+} */
+
+.card-head {
+    width: 100%;
+} 
+
+.cardTitle {
+    border-bottom: 2px solid #DE342E;
 }
 
-.card-row {
-    
+.cardDifficulty {
+    border-Top: 2px solid Navy;
+    font-weight: bold;
 }

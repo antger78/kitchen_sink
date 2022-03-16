@@ -1,7 +1,5 @@
 import React from "react";
-import { Card, ListGroup, Row, Spinner } from "react-bootstrap";
-import { useQuery } from "@apollo/client";
-import { QUERY_RECIPES } from "../../utils/queries";
+import { Card, ListGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./recipeList.css";
 import ReactTextCollapse from "react-text-collapse";
@@ -22,11 +20,13 @@ const RecipeList = (props) => {
 	const {
 		id,
 		title,
+		author,
 		difficulty,
 		prepInstructions,
 		prepTime,
 		cookTime,
 		ingredients,
+		likesCount,
 	} = props;
 	// get data from db to populate cards
 	// const { loading, data } = useQuery(QUERY_RECIPES);
@@ -34,29 +34,43 @@ const RecipeList = (props) => {
 	// const queriedRecipes = data?.recipes || [];
 	// console.log(queriedRecipes);
 	return (
-		<Row className="flex-row">
-			<Card id={id} className="card">
-				{/* <Card.Img variant="top" alt="recipe card img" /> */}
-				<Card.Body>
-					<Card.Title className="cardTitle">{title}</Card.Title>
-					<Card.Text className="cardDifficulty">
-						Difficulty: {difficulty}
+		<Card className="card col-sm-12 col-md-5 col-lg-4 m-2" key={id}>
+			{/* <Card.Img variant="top" alt="recipe card img" /> */}
+			<Card.Header className="container-fluid card-head ">
+				<Card.Title>
+					<span className="fa-solid fa-heart"></span>
+					{title}
+				</Card.Title>
+				<Card.Subtitle>by {author}</Card.Subtitle>
+				{likesCount === 1 ? (
+					<p>{likesCount} person likes this recipe</p>
+				) : (
+					<p>{likesCount} people like this recipe</p>
+				)}
+			</Card.Header>
+			<Card.Body>
+				<Card.Text>
+					<strong>Difficulty:</strong> {difficulty}
+				</Card.Text>
+				<Card.Subtitle>
+					<strong>Prep Time:</strong> {prepTime} | <strong>Cook Time:</strong>{" "}
+					{cookTime}
+				</Card.Subtitle>
+				<Card.Subtitle></Card.Subtitle>
+
+				<ListGroup variant="flush">
+					{ingredients.map((ingredient, i) => {
+						return <ListGroup.Item key={i}>{ingredient}</ListGroup.Item>;
+					})}
+				</ListGroup>
+
+				<ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
+					<Card.Text>
+						<strong>Prep Instructions:</strong> {prepInstructions}
 					</Card.Text>
-					<Card.Subtitle>Prep Time: {prepTime}</Card.Subtitle>
-					<Card.Subtitle>Cook Time: {cookTime}</Card.Subtitle>
-
-					<ListGroup variant="flush">
-						{ingredients.map((ingredient) => {
-							return <ListGroup.Item>{ingredient}</ListGroup.Item>;
-						})}
-					</ListGroup>
-
-					<ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
-						<Card.Text>Prep Instructions: {prepInstructions}</Card.Text>
-					</ReactTextCollapse>
-				</Card.Body>
-			</Card>
-		</Row>
+				</ReactTextCollapse>
+			</Card.Body>
+		</Card>
 	);
 };
 

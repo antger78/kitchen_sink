@@ -40,24 +40,28 @@ const RecipeContainer = () => {
 					/>
 				</InputGroup>
 			</Row>
-			{loading ? (
-				<Spinner animation="border" />
-			) : (
-				searchedRecipes.map((recipe) => {
-					return (
-						<RecipeList
-							key={recipe._id}
-							id={recipe._id}
-							title={recipe.title}
-							difficulty={recipe.difficulty}
-							prepInstructions={recipe.prepInstructions}
-							prepTime={recipe.prepTime}
-							cookTime={recipe.cookTime}
-							ingredients={recipe.ingredients}
-						/>
-					);
-				})
-			)}
+			<Row>
+				{loading ? (
+					<Spinner animation="border" />
+				) : (
+					searchedRecipes.map((recipe) => {
+						return (
+							<RecipeList
+								className=""
+								key={recipe._id}
+								id={recipe._id}
+								title={recipe.title}
+								author={recipe.author}
+								difficulty={recipe.difficulty}
+								prepInstructions={recipe.prepInstructions}
+								prepTime={recipe.prepTime}
+								cookTime={recipe.cookTime}
+								ingredients={recipe.ingredients}
+							/>
+						);
+					})
+				)}
+			</Row>
 		</Container>
 	);
 	// }
