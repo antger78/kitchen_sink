@@ -130,6 +130,21 @@ const resolvers = {
 			}
 			throw new AuthenticationError('You must be logged in');
 		},
+		removeLike: async (parent, args, context) => {
+			if (context.user) {
+				const unlikedRecipe = await Recipe.findOneAndUpdate(
+					{ _id: args._id },
+					{ $pull: { userLikes: context.user._id }},
+					{ new: true }
+				);
+
+				await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $pull: { likedRecipes: unlikedRecipe._id }},
+					{new: true }
+				);
+			}
+		},
 		deleteRecipe: async (parent, args, context) => {
 			if (context.user) {
 				const recipe = await Recipe.findOneAndDelete({ _id: args._id });

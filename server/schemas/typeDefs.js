@@ -62,6 +62,7 @@ const typeDefs = gql`
       difficulty: String
     ): Recipe
     likeRecipe(_id: ID!): Recipe
+    removeLike(_id: ID!): Recipe
   }
 `;
 
