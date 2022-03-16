@@ -1,41 +1,26 @@
 import React, { useState, useEffect } from "react";
-import {
-  Container,
-  Form,
-  Row,
-  Spinner,
-  InputGroup,
-  Col,
-} from "react-bootstrap";
-
+import { Container, Form, Row, Spinner, InputGroup } from "react-bootstrap";
 import RecipeList from "../RecipeList";
 import { useQuery } from "@apollo/client";
-import { QUERY_KEYWORDRECIPE } from "../../utils/queries";
+import { QUERY_FAVORITERECIPES } from "../../utils/queries";
 
-const RecipeContainer = () => {
-  // const heading = props.currentCategory;
-  // const {category} = props;
-  // if category is home, initial state is popular posts
-  // search (iwll be function) will repopulate with search results (new state)
-  // if category is yours, populate with recipes matching username/id
-  // if category is liked, populate with recipes user has liked
-  // update the user model with field 'likedRecipe':[{obj id refs: recipes}] for queries
+const LikedRecipes = () => {
   const [searchedRecipes, setSearchedRecipes] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const { loading, data } = useQuery(QUERY_KEYWORDRECIPE, {
+  const { loading, data } = useQuery(QUERY_FAVORITERECIPES, {
     variables: { input: searchInput },
   });
 
   useEffect(() => {
     if (data) {
-      setSearchedRecipes(data.keywordRecipe);
+      setSearchedRecipes(data.userFavoriteRecipes.likedRecipes);
     }
   }, [data]);
 
   return (
-		<Container fluid className="mainBackground">
-      {/* <h1>{category}</h1> */}
-			<Row className="py-2">
+    <Container fluid>
+      <h4>Your Favorite Recipes!</h4>
+      {/* <Row>
         <InputGroup>
           <InputGroup.Text>Looking for something specific?</InputGroup.Text>
           <Form.Control
@@ -46,10 +31,8 @@ const RecipeContainer = () => {
             placeholder="Search for a recipe"
           />
         </InputGroup>
-      </Row>
-      <h4 className="col-12 title">Recently Posted Recipes</h4>
-			<Row xs={1} md={2} lg={3}>
-        {/* <Col className="col-12 title">Recently Posted Recipes</Col> */}
+      </Row> */}
+      <Row className="card-row d-flex flex-row flex-wrap justify-content-around gy-4">
         {loading ? (
           <Spinner animation="border" />
         ) : (
@@ -64,9 +47,6 @@ const RecipeContainer = () => {
                 prepTime={recipe.prepTime}
                 cookTime={recipe.cookTime}
                 ingredients={recipe.ingredients}
-                author={recipe.author}
-                likesCount={recipe.likesCount}
-                userLikes={recipe.userLikes}
               />
             );
           })
@@ -74,7 +54,6 @@ const RecipeContainer = () => {
       </Row>
     </Container>
   );
-  // }
 };
 
-export default RecipeContainer;
+export default LikedRecipes;

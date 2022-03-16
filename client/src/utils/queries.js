@@ -39,7 +39,7 @@ export const QUERY_RECIPE = gql`
       cookTime
       ingredients
       prepInstructions
-      userLikes
+      # userLikes
       likesCount
     }
   }
@@ -50,11 +50,51 @@ export const QUERY_KEYWORDRECIPE = gql`
     keywordRecipe(input: $input) {
       _id
       title
+      author
       difficulty
       prepTime
       cookTime
       ingredients
       prepInstructions
+      likesCount
+      userLikes {
+        _id
+      }
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query {
+    me {
+      recipes {
+        _id
+        title
+        author
+        ingredients
+        prepTime
+        cookTime
+        prepInstructions
+        difficulty
+        likesCount
+      }
+    }
+  }
+`;
+export const QUERY_FAVORITERECIPES = gql`
+  query {
+    userFavoriteRecipes {
+      likedRecipes {
+        _id
+        title
+        author
+        ingredients
+        prepTime
+        cookTime
+        prepInstructions
+        difficulty
+        likesCount
+      }
     }
   }
 `;

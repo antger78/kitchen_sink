@@ -1,0 +1,21 @@
+.navBlock {
+    color: #BD906A;
+    margin-bottom: 10px;
+}
+
+.headerFont {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600; 
+    font-size: 2rem;
+    color: #DE342E;
+}
+
+.linkCategories {
+    color: #DE342E;
+    font-size: 20px;
+}
+
+.brown {
+    background-color: #508517;
+    opacity: 0.5;
+ }
