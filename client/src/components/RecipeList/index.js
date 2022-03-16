@@ -27,12 +27,18 @@ const RecipeList = (props) => {
     prepTime,
     cookTime,
     ingredients,
+    // userLikes,
+    author,
+    likeCount
   } = props;
-  // get data from db to populate cards
-  // const { loading, data } = useQuery(QUERY_RECIPES);
-  // // if data exists, store in queriedRecipes const
-  // const queriedRecipes = data?.recipes || [];
-  // console.log(queriedRecipes);
+ 
+  // query userLikes arr for context
+  // initial state of liked: false
+  // check if user._id is in userLikes Arr
+
+  // handle add like
+
+  // handle remove like
   return (
     <Card className="card col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-1">
       {/* <Card.Img variant="top" alt="recipe card img" /> */}
