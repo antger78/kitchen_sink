@@ -31,22 +31,28 @@ const resolvers = {
     },
 
     me: async (parent, args, context) => {
+      const search_term = args.input;
+      const regex = new RegExp(search_term, "i");
+
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).populate(
-          "recipes"
-        );
+        const userData = await User.findOne({
+          _id: context.user._id,
+        }).populate("recipes");
         return userData;
       }
       throw new AuthenticationError("Not logged in");
     },
-    // userFavoriteRecipes: async (parent, args, context) => {
-    // 	if (context.user) {
-    // 		const userData = await User.findOne({ _id: context.user._id}).populate("likedRecipes");
-    // 		return userData;
-    // 	}
-    // 	throw new AuthenticationError("Not logged in")
-
-    // },
+    userFavoriteRecipes: async (parent, args, context) => {
+      //   const search_term = args.input;
+      //   const regex = new RegExp(search_term, "i");
+      if (context.user) {
+        const userData = await User.findOne({
+          _id: context.user._id,
+        }).populate("likedRecipes");
+        return userData;
+      }
+      throw new AuthenticationError("Not logged in");
+    },
   },
 
   Mutation: {
@@ -104,9 +110,11 @@ const resolvers = {
 
       throw new AuthenticationError("You must be logged in");
     },
+
     likeRecipe: async (parent, args, context) => {
       if (context.user._id) {
         // add user id recipe userLikes for count
+
         const likedRecipe = await Recipe.findOneAndUpdate(
           { _id: args._id },
           { $push: { userLikes: context.user._id } },
@@ -116,7 +124,7 @@ const resolvers = {
         // add recipe to user's list of favorites
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { likedRecipes: likedRecipe._id } },
+          { $push: { likedRecipes: args._id } },
           { new: true }
         );
 

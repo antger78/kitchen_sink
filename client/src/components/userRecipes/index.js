@@ -1,6 +1,5 @@
 import React, { useState, useEffect }  from "react";
 import { Container, Form, Row, Spinner, InputGroup } from "react-bootstrap";
-import SearchRecipes from "../searchRecipe";
 import RecipeList from "../RecipeList";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
@@ -14,8 +13,9 @@ const UserRecipes = () => {
   });
  
   useEffect(() => {
+    console.log(data)
     if (data) {
-      setSearchedRecipes(data.me);
+      setSearchedRecipes(data.me.recipes);
     }
   }, [data]);
 
