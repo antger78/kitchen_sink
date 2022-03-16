@@ -6,9 +6,10 @@
 ### Table of Contents
 * [Description](#description)
 * [Installation](#installation)
-    * [Prerequisites](#prerequisites)
+   * [Prerequisites](#prerequisites)
 * [Usage](#usage)
 * [Contributing](#contributing)
+   * [Built With](#built-with) 
 * [License](#license)
 * [Questions & Contact](#questions-and-contact)
 * [Acknowledgements ❣](#acknowledgements-❣)
@@ -63,7 +64,7 @@ This application uses from the following sources:
 - [React Router](https://reactrouter.com/)
 
 ## License
-![license](https://img.shields.io/github/license/antger78/
+![license](https://img.shields.io/github/license/antger78/)
 
 This application falls under the MIT lisence.
 
