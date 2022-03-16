@@ -1,0 +1,39 @@
+.brown {
+   background-color:#BD906A;
+   opacity: 0.5;
+}
+/* .red {
+    color: #DE342E;
+} */
+/* .green {
+    color:#98F03D
+} */
+
+h1, h2, h3, h4 {
+    font-family: Fredoka, sans-serif;
+    color: #DE342E;
+}
+
+.navBlock {
+    color: #BD906A;
+    /* border-bottom-color: #98F03D; */
+    margin-bottom: 10px;
+}
+
+.mainBackground {
+    background-image: url("./images/cuttingboard-bg.png");
+    opacity: 0.7;
+}
+
+.card {
+    margin: 5px 5px 5px 5px;
+}
+
+.cardTitle {
+    border-bottom: 2px solid #DE342E;
+}
+
+.cardDifficulty {
+    border-Top: 2px solid Navy;
+    font-weight: bold;
+}
