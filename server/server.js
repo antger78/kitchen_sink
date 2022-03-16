@@ -19,7 +19,7 @@ const app = express();
   });
 
   // start server and apply middleware
-  // await server.start();
+  server.start();
   server.applyMiddleware({ app });
   console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
 // };

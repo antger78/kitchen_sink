@@ -19,7 +19,7 @@ const LikedRecipes = () => {
 
   return (
     <Container fluid>
-      {/* <h1>{category}</h1> */}
+      <h4>Your Favorite Recipes!</h4>
       {/* <Row>
         <InputGroup>
           <InputGroup.Text>Looking for something specific?</InputGroup.Text>
