@@ -1,7 +1,7 @@
-# kitchen sink
+# Kitchen Sink
 ![license](https://img.shields.io/github/license/antger78/kitchen_sink) ![issues](https://img.shields.io/github/issues/antger78/kitchen_sink)
 
-Kitchen Sink is a social, community-driven web application for hosting and searching recipes from a user-seeded, NoSQL database.
+[Kitchen Sink](https://kitchen-sink.herokuapp.com/) is a social, community-driven web application for hosting and searching recipes from a user-seeded, NoSQL database.
 
 ### Table of Contents
 * [Description](#description)
@@ -23,7 +23,7 @@ To run Kitchen Sink locally, download or clone this repository. Navigate to the 
 [MongoDB](https://www.mongodb.com/) and [Node.js](https://nodejs.org/en/) are required to run this application locally.
 
 ## Usage
-You can find Kitchen Sink [here](). To search for a recipe, simply begin typing in the search bar. Matching results will pop up.
+You can find Kitchen Sink [here](https://kitchen-sink.herokuapp.com/). To search for a recipe, simply begin typing in the search bar. Matching results will pop up.
 
 <img src='' alt='main page preview' width='80%'>
 
