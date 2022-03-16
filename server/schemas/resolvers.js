@@ -29,24 +29,27 @@ const resolvers = {
 
       return found;
     },
-    // userRecipes
-    // userRecipes: async  (parent, args, context)=> {
-    // 	if (context.user) {
-    // 		return await User.findOne({ _id: context.user._id })
-    // .populate({
-    // 	path:'recipes',
-    // });
-    // 	}
-    // }
-    // userFavoriteRecipes
-    userFavoriteRecipes: async (parent, args, context) => {
+
+
+    me: async (parent, args, context) => {
+    //   const search_term = args.input;
+    //   const regex = new RegExp(search_term, "i");
+
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).populate(
-          {
-            path: "likedRecipes",
-            select: "-__v",
-          }
-        );
+        const userData = await User.findOne({
+          _id: context.user._id,
+        }).populate("recipes");
+        return userData;
+      }
+      throw new AuthenticationError("Not logged in");
+    },
+    userFavoriteRecipes: async (parent, args, context) => {
+      //   const search_term = args.input;
+      //   const regex = new RegExp(search_term, "i");
+      if (context.user) {
+        const userData = await User.findOne({
+          _id: context.user._id,
+        }).populate("likedRecipes");
         return userData;
       }
       throw new AuthenticationError("Not logged in");
@@ -108,19 +111,23 @@ const resolvers = {
 
       throw new AuthenticationError("You must be logged in");
     },
+
     likeRecipe: async (parent, args, context) => {
       if (context.user) {
         // add user id recipe userLikes for count
         const likedRecipe = await Recipe.findOneAndUpdate(
           { _id: args._id },
           { $addToSet: { userLikes: context.user._id } },
+
           { new: true }
         );
 
         // add recipe to user's list of favorites
         await User.findOneAndUpdate(
           { _id: context.user._id },
+
           { $addToSet: { likedRecipes: args._id } },
+
           { new: true }
         );
 
@@ -128,6 +135,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in");
     },
+
     unlikeRecipe: async (parent, args, context) => {
       if (context.user) {
         const unlikedRecipe = await Recipe.findOneAndUpdate(
@@ -146,6 +154,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in");
     },
+
     deleteRecipe: async (parent, args, context) => {
       if (context.user) {
         const recipe = await Recipe.findOneAndDelete({ _id: args._id });
