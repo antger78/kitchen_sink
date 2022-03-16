@@ -9,6 +9,7 @@ const typeDefs = gql`
     password: String
     email: String
     recipes: [Recipe]
+    likedRecipes: [Recipe]
   }
 
   type Recipe {
@@ -25,25 +26,19 @@ const typeDefs = gql`
     likesCount: Int
   }
 
-  # input RecipeSearchTerm {
-  #   title: String
-  # }
-
-  # input RecipeFilter {
-  #   filter: RecipeSearchTerm
-  # }
-
-
   type Auth {
     token: ID!
     user: User
   }
 
   type Query {
+    me(input: String): User
     users: [User]
     recipes: [Recipe]
     recipe(_id: ID!): Recipe
     keywordRecipe(input: String): [Recipe]
+    # userRecipes(input:String): [Recipe]
+    userFavoriteRecipes: User
   }
 
   type Mutation {
@@ -53,9 +48,9 @@ const typeDefs = gql`
       title: String!
       ingredients: [String]
       prepInstructions: String
-			prepTime: Int
-      cookTime:Int
-			difficulty: String
+      prepTime: Int
+      cookTime: Int
+      difficulty: String
     ): Recipe
     deleteRecipe(_id: ID!): Recipe
     updateRecipe(
@@ -68,6 +63,7 @@ const typeDefs = gql`
       difficulty: String
     ): Recipe
     likeRecipe(_id: ID!): Recipe
+    unlikeRecipe(_id: ID!): Recipe
   }
 `;
 

@@ -5,8 +5,14 @@ import { useMutation } from "@apollo/client";
 import { MUTATION_ADDRECIPE } from "../../utils/mutations";
 import { QUERY_RECIPES } from "../../utils/queries";
 import Auth from "../../utils/auth";
+import { useHistory} from "react-router-dom";
 
 const RecipeForm = () => {
+  const history = useHistory();
+  const redirect = () => {
+  history.push('/your-recipes');
+  
+  }
   const [recipeFormData, setRecipeFormData] = useState({
     title: "",
     // Ingredients should have objects {id: string, name: string}
@@ -58,7 +64,7 @@ const RecipeForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("IS THIS SUBMITTING?");
+    // console.log("IS THIS SUBMITTING?");
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -81,6 +87,8 @@ const RecipeForm = () => {
       cookTime: 0,
       difficulty: "",
     });
+    redirect();
+    window.location.reload();
   };
 
   return (
@@ -139,7 +147,7 @@ const RecipeForm = () => {
                 </div>
               );
             })}
-            <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
+            {/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
           </div>
         </Form.Group>
 
