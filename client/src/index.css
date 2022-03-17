@@ -1,6 +1,17 @@
-.mainBackground {
+/* .mainBackground {
     background-image: url("./images/cuttingboard-bg.png");
     opacity: 0.7;
+} */
+
+body {
+    background-image: url("./images/cuttingboard-bg.png");
+    opacity: 0.7;
+    position: relative;
+    min-height: 100vh;
+}
+
+.container-wrap {
+    padding-bottom: 4rem;
 }
 
 /* h1 {
