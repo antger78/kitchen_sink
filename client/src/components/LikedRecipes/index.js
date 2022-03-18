@@ -32,7 +32,7 @@ const LikedRecipes = () => {
           />
         </InputGroup>
       </Row> */}
-      <Row className="card-row d-flex flex-row flex-wrap justify-content-around gy-4">
+      <Row xs={1} md={2} lg={3}>
         {loading ? (
           <Spinner animation="border" />
         ) : (
