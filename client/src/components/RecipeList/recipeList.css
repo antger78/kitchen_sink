@@ -1,8 +1,9 @@
-/* .card {
-    margin: px;
-    min-width: 20em;
-    max-width: 90%;
-} */
+.card {
+    /* margin: px; */
+    margin-top: 1rem;
+    /* min-width: 20em;
+    max-width: 90%; */
+}
 
 .card-head {
     width: 100%;

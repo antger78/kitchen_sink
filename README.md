@@ -1,78 +1,75 @@
-As a person with a stocked fridge and no idea what to eat, I want an app where I can select a recipe based on the ingredients I have and other users' review (Pintrist model shareable post of used recipes with comments and upvote) of those recipes so that those with random bits of food and varying cooking capabilities can find new and enticing recipes.
+# Kitchen Sink
+![license](https://img.shields.io/github/license/antger78/kitchen_sink) ![issues](https://img.shields.io/github/issues/antger78/kitchen_sink)
 
-As a person with a semi-stocked fridge and no idea what to eat, I want an app where I can search what ingredients I have, and be returned with what 
+[Kitchen Sink](https://kitchen-sink.herokuapp.com/) is a social, community-driven web application for hosting and searching recipes from a user-seeded, NoSQL database.
 
-AS A person that cooks and eats
-I WANT to share my recipes I am proud of and find new ones to try based on ingredients available in my home
-SO THAT I can connect with fellow cooks and expand my recipe repertoire
+### Table of Contents
+* [Description](#description)
+* [Installation](#installation)
+   * [Prerequisites](#prerequisites)
+* [Usage](#usage)
+* [Contributing](#contributing)
+   * [Built With](#built-with) 
+* [License](#license)
+* [Questions & Contact](#questions-and-contact)
+* [Acknowledgements ❣](#acknowledgements-❣)
 
-# Getting Started with Create React App
+## Desciption
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Installation
+To run Kitchen Sink locally, download or clone this repository. Navigate to the root directory of Kitchen Sink in your CLI. Run the command ```npm i``` to install all dependencies. Follow that command with ```npm run develop``` to start your local servers. Kitchen Sink is now installed on your local machine and running! Follow the prompts in you CLI to find the local url.
 
-In the project directory, you can run:
+### Prerequisites
+[MongoDB](https://www.mongodb.com/) and [Node.js](https://nodejs.org/en/) are required to run this application locally.
 
-### `npm start`
+## Usage
+You can find Kitchen Sink [here](https://kitchen-sink.herokuapp.com/). To search for a recipe, simply begin typing in the search bar. Matching results will pop up.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img src='/client/public/images/home-preview.png' alt='main page preview' width='80%'>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In the navigation bar, you'll see a button to login/sign up. Clicking this link will open a modal for users to login. You can also sign up from this modal by clicking the 'Sign up' tab.
 
-### `npm test`
+<img src='/client/public/images/login-signup-preview.png' alt='login/signup preview' width='80%'>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To add your own recipe to our ever-growing collection, click the 'Add Recipe' link in the nav bar. This link will only appear _if you are logged in_. Fill out the form with all you recipe information, then click submit when you're done.
 
-### `npm run build`
+<img src='/client/public/images/add-recipe-preview.png' alt='add recipe form preview' width='80%'>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can view the recipes you have created and recipes you've liked by clicking on the appropriate tabs in the nav bar.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src='/client/public/images/your-recipes-preview.png' alt='your page preview' width='80%'>
+<img src='/client/public/images/liked-recipes-preview.png' alt='likes page preview' width='80%'>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
+Kitchen Sink was designed and built by **The Band**, a team of developers enrolled in Columbia University's Full Stack Engineering Bootcamp. You can find us on GitHub:
 
-### `npm run eject`
+- [Lelah Bates Childs](https://github.com/labchild/)
+- [Anthony Geritano](https://github.com/antger78/)
+- [Mark Loercher](https://github.com/mloercher/)
+- [Jill Suarez](https://github.com/jillsuarez/)
+- [Ambrose Wilkinson](https://github.com/a-breezy/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Built With
+This application uses from the following sources:
+- [Apollo](https://www.apollographql.com/docs/react/)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
+- [Express.js](https://www.npmjs.com/package/express)
+- [GraphQl](https://graphql.org/)
+- [JSON Web Token](https://www.npmjs.com/package/jsonwebtoken)
+- [Mongoose](https://mongoosejs.com/)
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [React](https://reactjs.org/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [React Router](https://reactrouter.com/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
+![license](https://img.shields.io/github/license/antger78/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This application falls under the MIT lisence.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Questions and Contact
+If you find a bug, have a suggestion, or you just want to know more, please [submit an issue](https://github.com/antger78/kitchen_sink/issues). We greatly appreciate any iput!
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgements
+Thank you to our bootcamp instructional team and cohort, for helping us along this journey to become developers ❣️
