@@ -95,7 +95,12 @@ const RecipeForm = () => {
 
 	return (
 		<>
-			<Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+			<Form
+				noValidate
+				validated={validated}
+				onSubmit={handleFormSubmit}
+				className="mx-2"
+			>
 				<Alert
 					dismissible
 					onClose={() => setShowAlert(false)}
@@ -105,13 +110,15 @@ const RecipeForm = () => {
 					Something went wrong with your recipe input!
 				</Alert>
 				<Form.Group>
-					<row>
-						<Form.Label htmlFor="title" className="title">
+					<row className="row-box my-2">
+						<Form.Label htmlFor="title" className="mx-auto title">
 							Title
 						</Form.Label>
 						<Form.Control
+							className="mx-auto"
 							type="text"
 							placeholder="Recipe Title"
+							style={{ width: "80%" }}
 							name="title"
 							onChange={handleInputChange}
 							value={recipeFormData.title}
@@ -123,38 +130,76 @@ const RecipeForm = () => {
 					</Form.Control.Feedback>
 				</Form.Group>
 
-				<Form.Group>
-					<Form.Label htmlFor="ingredients">Ingredients</Form.Label>
-					<div className="App">
-						{inputList.map((ingredient, i) => {
-							return (
-								<div className="box">
-									<input
-										className="ml10"
-										name="ingredients"
-										placeholder="Enter an ingredient"
-										value={ingredient}
-										onChange={(e) => handleIngredientsInputChange(e, i)}
-									/>
-									<div className="btn-box">
-										{inputList.length > 1 && (
-											<button
-												type="button"
-												className="mr10"
-												onClick={() => handleRemoveClick(i)}
-											>
-												Remove
-											</button>
-										)}
-										{inputList.length - 1 === i && (
-											<button onClick={handleAddClick}>Add</button>
-										)}
-									</div>
+				<Form.Group className="mx-2">
+					<Form.Label htmlFor="ingredients" className="form-label">
+						Ingredients
+					</Form.Label>
+					{/* <row className="row-box"> */}
+					{inputList.map((ingredient, i) => {
+						return (
+							<row className="row-box my-2">
+								// this is broken because it's named the same as the title
+								controller
+								<Form.Control
+									className="mx-auto"
+									type="text"
+									placeholder="Recipe Title"
+									style={{ width: "80%" }}
+									name="title"
+									onChange={handleInputChange}
+									value={recipeFormData.title}
+									required
+								/>
+								<div
+									className="btn-box my-auto mx-auto"
+									style={{ width: "2%" }}
+								>
+									{inputList.length > 1 && (
+										<button
+											type="button"
+											className="mr10"
+											onClick={() => handleRemoveClick(i)}
+										>
+											Remove
+										</button>
+									)}
+									{inputList.length - 1 === i && (
+										<button className="my-auto" onClick={handleAddClick}>
+											Add
+										</button>
+									)}
 								</div>
-							);
-						})}
-						{/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
-					</div>
+							</row>
+							// old system of imputing ingredients
+							// <row className="row-box">
+							// 	<input
+							// 		className="mx-auto"
+							//     type="text"
+							// 		style={{ width: "80%" }}
+							// 		name="ingredients"
+							// 		placeholder="Enter an ingredient"
+							// 		value={ingredient}
+							// 		onChange={(e) => handleIngredientsInputChange(e, i)}
+							// 	/>
+							// 	<div className="btn-box">
+							// 		{inputList.length > 1 && (
+							// 			<button
+							// 				type="button"
+							// 				className="mr10"
+							// 				onClick={() => handleRemoveClick(i)}
+							// 			>
+							// 				Remove
+							// 			</button>
+							// 		)}
+							// 		{inputList.length - 1 === i && (
+							// 			<button onClick={handleAddClick}>Add</button>
+							// 		)}
+							// 	</div>
+							// </row>
+						);
+					})}
+					{/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
+					{/* </row> */}
 				</Form.Group>
 
 				{/* <Form.Group>
@@ -171,9 +216,11 @@ const RecipeForm = () => {
           </Form.Control.Feedback>
         </Form.Group> */}
 
-				<Form.Group>
+				<Form.Group className="mx-2 my-1">
 					<Form.Label htmlFor="prepInstructions">Prep Instructions</Form.Label>
 					<Form.Control
+						as="textarea"
+						rows={3}
 						type="text"
 						placeholder="Prep Instructions"
 						name="prepInstructions"
@@ -185,51 +232,63 @@ const RecipeForm = () => {
 					</Form.Control.Feedback>
 				</Form.Group>
 
-				<Form.Group>
-					<Form.Label htmlFor="prepTime">Prep Time</Form.Label>
-					<Form.Control
-						as="input"
-						type="number"
-						placeholder="Prep Time"
-						name="prepTime"
-						onChange={handleInputChange}
-						value={recipeFormData.prepTime}
-						required
-					/>
-					<Form.Control.Feedback type="invalid">
-						How long does your dish take to prep?
-					</Form.Control.Feedback>
+				<Form.Group className="mx-2 my-2">
+					<row className="row-box">
+						<Form.Label htmlFor="prepTime">Prep Time</Form.Label>
+						<Form.Control
+							className="mx-auto"
+							style={{ width: "70%" }}
+							as="input"
+							type="number"
+							placeholder="Prep Time"
+							name="prepTime"
+							onChange={handleInputChange}
+							value={recipeFormData.prepTime}
+							required
+						/>
+						<Form.Control.Feedback type="invalid">
+							How long does your dish take to prep?
+						</Form.Control.Feedback>
+					</row>
 				</Form.Group>
 
-				<Form.Group>
-					<Form.Label htmlFor="cookTime">Cook Time</Form.Label>
-					<Form.Control
-						as="input"
-						type="number"
-						placeholder="Cook Time"
-						name="cookTime"
-						onChange={handleInputChange}
-						value={recipeFormData.cookTime}
-						required
-					/>
-					<Form.Control.Feedback type="invalid">
-						How long does your dish take to cook?
-					</Form.Control.Feedback>
+				<Form.Group className="mx-2 my-2">
+					<row className="row-box">
+						<Form.Label htmlFor="cookTime">Cook Time</Form.Label>
+						<Form.Control
+							className="mx-auto"
+							style={{ width: "70%" }}
+							as="input"
+							type="number"
+							placeholder="Cook Time"
+							name="cookTime"
+							onChange={handleInputChange}
+							value={recipeFormData.cookTime}
+							required
+						/>
+						<Form.Control.Feedback type="invalid">
+							How long does your dish take to cook?
+						</Form.Control.Feedback>
+					</row>
 				</Form.Group>
 
-				<Form.Group>
-					<Form.Label htmlFor="difficulty">Difficulty</Form.Label>
-					<Form.Select
-						type="text"
-						name="difficulty"
-						onChange={handleInputChange}
-						value={recipeFormData.difficulty}
-						required
-					>
-						<option value="Easy">Easy</option>
-						<option value="Medium">Medium</option>
-						<option value="Hard">Hard</option>
-					</Form.Select>
+				<Form.Group className="mx-2 my-2">
+					<row className="row-box">
+						<Form.Label htmlFor="difficulty">Difficulty</Form.Label>
+						<Form.Select
+							className="mx-auto"
+							style={{ width: "80%" }}
+							type="text"
+							name="difficulty"
+							onChange={handleInputChange}
+							value={recipeFormData.difficulty}
+							required
+						>
+							<option value="Easy">Easy</option>
+							<option value="Medium">Medium</option>
+							<option value="Hard">Hard</option>
+						</Form.Select>
+					</row>
 				</Form.Group>
 				<Button type="submit" onClick={() => handleFormSubmit()}>
 					Add your recipe
