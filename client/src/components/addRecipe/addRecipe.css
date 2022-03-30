@@ -1,5 +1,8 @@
 .row-box {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .title{
@@ -7,5 +10,32 @@
 }
 
 .form-label {
-    font-size: 1.25em
+    font-size: 1.25em;
+    /* width: 20%; */
+}
+
+.title-input {
+    display: flex;
+    width: 80%;
+}
+
+.ingredient-input {
+    width: 80%;
+    /* display: flex; */
+}
+
+.ingredient-button {
+    margin-right: 0%;
+    /* width: 10%; */
+}
+
+.prep-cook-time {
+    width: 70%;
+    margin-right: 0;
+}
+
+.submit-recipe-button {
+    margin-left: 50%;
+    width: 50%;
+
 }
