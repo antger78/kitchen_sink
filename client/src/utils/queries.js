@@ -77,6 +77,9 @@ export const QUERY_ME = gql`
         prepInstructions
         difficulty
         likesCount
+        userLikes {
+        _id
+      }
       }
     }
   }
@@ -94,6 +97,9 @@ export const QUERY_FAVORITERECIPES = gql`
         prepInstructions
         difficulty
         likesCount
+        userLikes {
+        _id
+      }
       }
     }
   }

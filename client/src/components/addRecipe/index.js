@@ -4,7 +4,6 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import { MUTATION_ADDRECIPE } from "../../utils/mutations";
 import { QUERY_RECIPES } from "../../utils/queries";
-import Auth from "../../utils/auth";
 import { useHistory } from "react-router-dom";
 import "./addRecipe.css";
 
@@ -291,6 +290,7 @@ const RecipeForm = () => {
 							value={recipeFormData.difficulty}
 							required
 						>
+							<option>Select Difficulty</option>
 							<option value="Easy">Easy</option>
 							<option value="Medium">Medium</option>
 							<option value="Hard">Hard</option>

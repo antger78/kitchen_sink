@@ -7,7 +7,7 @@ import {
   MUTATION_LIKERECIPE,
   MUTATION_REMOVELIKE,
 } from "../../utils/mutations";
-import { QUERY_KEYWORDRECIPE } from "../../utils/queries";
+import { QUERY_KEYWORDRECIPE, QUERY_FAVORITERECIPES } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import ReactTextCollapse from "react-text-collapse";
 const TEXT_COLLAPSE_OPTIONS = {
@@ -44,19 +44,20 @@ const RecipeList = (props) => {
 
   useEffect(() => {
     if (Auth.loggedIn()) {
-      if (userLikes?.some((like) => like === Auth.getProfile().data._id)) {
+      console.log(userLikes);
+      if (userLikes?.some((like) => like._id === Auth.getProfile().data._id)) {
        setIsLiked(true);
       }
     }
-  }, [userLikes]);
+  }, [likesCount]);
 
   // mutations
   const [addLike] = useMutation(MUTATION_LIKERECIPE, {
-    refetchQueries: [QUERY_KEYWORDRECIPE],
+    options: { awaitRefetchQuesries: true }
   });
 
   const [removeLike] = useMutation(MUTATION_REMOVELIKE, {
-    refetchQueries: [QUERY_KEYWORDRECIPE]
+    options: { awaitRefetchQuesries: true }
   })
 
   // handle add like
@@ -68,6 +69,7 @@ const RecipeList = (props) => {
       console.log(err);
       // setSendError(true);
     }
+    // window.location.reload();
   };
 
   // handle remove like
@@ -78,6 +80,7 @@ const RecipeList = (props) => {
     } catch(err) {
       console.log(err);
     }
+    // window.location.reload();
   };
 
   return (
