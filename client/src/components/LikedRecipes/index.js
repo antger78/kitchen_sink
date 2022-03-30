@@ -47,6 +47,9 @@ const LikedRecipes = () => {
                 prepTime={recipe.prepTime}
                 cookTime={recipe.cookTime}
                 ingredients={recipe.ingredients}
+                author={recipe.author}
+                likesCount={recipe.likesCount}
+                userLikes={recipe.userLikes}
               />
             );
           })

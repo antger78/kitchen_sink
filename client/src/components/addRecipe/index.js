@@ -1,10 +1,9 @@
 //add recipe form
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Row } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import { MUTATION_ADDRECIPE } from "../../utils/mutations";
 import { QUERY_RECIPES } from "../../utils/queries";
-import Auth from "../../utils/auth";
 import { useHistory } from "react-router-dom";
 import "./addRecipe.css";
 
@@ -112,7 +111,7 @@ const RecipeForm = () => {
 
 				{/* title area */}
 				<Form.Group>
-					<row className="row-box my-2">
+					<Row className="row-box my-2">
 						<Form.Label htmlFor="title" className="mx-auto my-auto title">
 							Title
 						</Form.Label>
@@ -125,7 +124,7 @@ const RecipeForm = () => {
 							value={recipeFormData.title}
 							required
 						/>
-					</row>
+					</Row>
 					<Form.Control.Feedback type="invalid">
 						Your Recipe needs a Title!
 					</Form.Control.Feedback>
@@ -133,7 +132,7 @@ const RecipeForm = () => {
 
 				{/* ingredient area */}
 				<Form.Group className="mx-1 my-2">
-					<row className="row-box">
+					<Row className="row-box">
 						<Form.Label
 							htmlFor="ingredients"
 							className="my-auto align-self-start"
@@ -142,7 +141,7 @@ const RecipeForm = () => {
 						</Form.Label>
 						{inputList.map((ingredient, i) => {
 							return (
-								<row className="row-box my-2">
+								<Row className="row-box my-2" key={i}>
 									<Form.Control
 										className="ingredient-input"
 										as="input"
@@ -168,7 +167,7 @@ const RecipeForm = () => {
 											</button>
 										)}
 									</div>
-								</row>
+								</Row>
 								// old system of imputing ingredients
 								// <row className="row-box">
 								// 	<input
@@ -199,7 +198,7 @@ const RecipeForm = () => {
 						})}
 						{/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
 						{/* </row> */}
-					</row>
+					</Row>
 				</Form.Group>
 
 				{/* <Form.Group>
@@ -235,7 +234,7 @@ const RecipeForm = () => {
 
 				{/* prep time */}
 				<Form.Group className="mx-1 my-2">
-					<row className="row-box">
+					<Row className="row-box">
 						<Form.Label htmlFor="prepTime" className="my-auto mx-auto">
 							Prep Time
 						</Form.Label>
@@ -252,12 +251,12 @@ const RecipeForm = () => {
 						<Form.Control.Feedback type="invalid">
 							How long does your dish take to prep?
 						</Form.Control.Feedback>
-					</row>
+					</Row>
 				</Form.Group>
 
 				{/* cook time */}
 				<Form.Group className="mx-1 my-2">
-					<row className="row-box">
+					<Row className="row-box">
 						<Form.Label htmlFor="cookTime" className="my-auto mx-auto">
 							Cook Time
 						</Form.Label>
@@ -274,12 +273,12 @@ const RecipeForm = () => {
 						<Form.Control.Feedback type="invalid">
 							How long does your dish take to cook?
 						</Form.Control.Feedback>
-					</row>
+					</Row>
 				</Form.Group>
 
 				{/* difficulty */}
 				<Form.Group className="mx-1 my-2">
-					<row className="row-box">
+					<Row className="row-box">
 						<Form.Label htmlFor="difficulty" className="my-auto mx-auto">
 							Difficulty
 						</Form.Label>
@@ -291,11 +290,12 @@ const RecipeForm = () => {
 							value={recipeFormData.difficulty}
 							required
 						>
+							<option>Select Difficulty</option>
 							<option value="Easy">Easy</option>
 							<option value="Medium">Medium</option>
 							<option value="Hard">Hard</option>
 						</Form.Select>
-					</row>
+					</Row>
 				</Form.Group>
 				<Button
 					type="submit"

@@ -45,7 +45,7 @@ function App() {
 	return (
 		<ApolloProvider client={client}>
 			<Router>
-				<div class="container-wrap">
+				<div className="container-wrap">
 					<Navbar
 						categories={categories}
 						currentCategory={currentCategory}
@@ -59,14 +59,14 @@ function App() {
 						<Route exact path="/add-recipe">
 							<RecipeForm category={categories[3]} />
 						</Route>
-            {/* show recipe container with "Your Recipes" h1 */}
-            <Route exact path="/your-recipes">
-              <UserRecipes category={categories[1]}  />
-            </Route> 
-            {/* show recipe container with "Your Fave Recipes" h1 */}
-            <Route exact path="/liked-recipes">
-              <LikedRecipes category={categories[2]}  />
-            </Route> 
+						{/* show recipe container with "Your Recipes" h1 */}
+						<Route exact path="/your-recipes">
+							<UserRecipes category={categories[1]} />
+						</Route>
+						{/* show recipe container with "Your Fave Recipes" h1 */}
+						<Route exact path="/liked-recipes">
+							<LikedRecipes category={categories[2]} />
+						</Route>
 						<Route render={() => <h1 className="display-2">Wrong page!</h1>} />
 					</Switch>
 					{/* <RecipeContainer category={currentCategory} /> */}
