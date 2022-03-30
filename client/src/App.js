@@ -45,7 +45,7 @@ function App() {
 	return (
 		<ApolloProvider client={client}>
 			<Router>
-				<>
+				<div class="container-wrap">
 					<Navbar
 						categories={categories}
 						currentCategory={currentCategory}
@@ -70,7 +70,7 @@ function App() {
 						<Route render={() => <h1 className="display-2">Wrong page!</h1>} />
 					</Switch>
 					{/* <RecipeContainer category={currentCategory} /> */}
-				</>
+				</div>
 				<Footer />
 			</Router>
 		</ApolloProvider>
